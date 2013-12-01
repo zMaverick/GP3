@@ -1,0 +1,6 @@
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\CourseworkContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\CourseworkContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\CourseworkContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\gwhite29\Desktop\Coursework-Current\Coursework\CourseworkContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\gwhite29\Desktop\Coursework-Current\Coursework-Current\Coursework\CourseworkContent\obj\x86\Debug\CourseworkContent.contentprojResolveAssemblyReference.cache
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\CourseworkContent\obj\x86\Debug\ResolveAssemblyReference.cache
