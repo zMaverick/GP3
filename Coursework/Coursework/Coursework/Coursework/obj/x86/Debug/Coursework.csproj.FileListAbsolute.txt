@@ -1,0 +1,60 @@
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\Coursework\bin\x86\Debug\Coursework.exe
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\Coursework\bin\x86\Debug\Coursework.pdb
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\Coursework\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\Coursework\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\Coursework\obj\x86\Debug\Coursework.exe
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\Coursework\obj\x86\Debug\Coursework.pdb
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\dalek.xnb
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\tardismodel.xnb
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\laser.xnb
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap.xnb
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\tardis.xnb
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb
+c:\users\gavin\documents\visual studio 2010\Projects\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\dalek.xnb
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\tardismodel.xnb
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\laser.xnb
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\ship.xnb
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap.xnb
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\tardis.xnb
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Coursework.exe
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Coursework.pdb
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\obj\x86\Debug\Coursework.exe
+C:\Users\Gavin\Desktop\Coursework-Current\Coursework\Coursework\obj\x86\Debug\Coursework.pdb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\dalek.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\tardismodel.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\laser.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\ship.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\tardis.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Coursework.exe
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Coursework.pdb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\obj\x86\Debug\Coursework.exe
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\obj\x86\Debug\Coursework.pdb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Fonts\GameFont.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\dalek.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\tardismodel.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\laser.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\ship.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\tardis.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Fonts\GameFont.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Coursework.exe
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Coursework.pdb
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\obj\x86\Debug\Coursework.exe
+C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\obj\x86\Debug\Coursework.pdb

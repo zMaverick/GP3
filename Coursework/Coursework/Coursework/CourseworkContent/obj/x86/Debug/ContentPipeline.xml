@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Models\dalek.x</Source>
+      <Name>Models\dalek</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\dalek.xnb</Output>
+      <Time>2013-11-19T11:32:26+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\dalek_0.xml</Key>
+        <Value>2013-12-01T14:28:04.8566543+00:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\tardis.x</Source>
+      <Name>Models\tardismodel</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\tardismodel.xnb</Output>
+      <Time>2013-11-19T11:32:26+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\tardis_0.xml</Key>
+        <Value>2013-12-01T14:28:05.3776841+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\laser.fbx</Source>
+      <Name>Models\laser</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\laser.xnb</Output>
+      <Time>2013-11-19T11:32:26+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\laser_0.xml</Key>
+        <Value>2013-12-01T14:28:06.2097317+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\ship.FBX</Source>
+      <Name>Models\ship</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\ship.xnb</Output>
+      <Time>2013-11-21T20:52:42+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\ship_0.xml</Key>
+        <Value>2013-12-01T14:28:10.0179495+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\LaserMap.tga</Source>
+      <Name>Models\LaserMap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap.xnb</Output>
+      <Time>2013-11-19T11:32:26+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Tardis.tga</Source>
+      <Name>Models\tardis</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\tardis.xnb</Output>
+      <Time>2013-11-19T11:32:26+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\GameFont.spritefont</Source>
+      <Name>Fonts\GameFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Fonts\GameFont.xnb</Output>
+      <Time>2013-11-24T16:18:18.4205203+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\dalek.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\dalek_0.xml</Output>
+      <Time>2013-11-19T11:32:26+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\tardis.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\tardis_0.xml</Output>
+      <Time>2013-11-19T11:32:26+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Tardis.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Output>
+      <Time>2013-11-19T11:32:26+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\laser.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\laser_0.xml</Output>
+      <Time>2013-11-19T11:32:26+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\LaserMap.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Output>
+      <Time>2013-11-19T11:32:26+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\ship.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\ship_0.xml</Output>
+      <Time>2013-11-21T20:52:42+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\ARC-170\ARC170_TXT_VERSION_4_D.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Output>
+      <Time>2013-11-20T17:29:08+00:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\CourseworkContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\CourseworkContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Coursework-Current\Coursework\Coursework\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-11-23T14:09:05.7493971+00:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
