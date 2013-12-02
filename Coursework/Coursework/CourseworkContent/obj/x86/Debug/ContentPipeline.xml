@@ -2,16 +2,61 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
+      <Source>GUI\crosshair.png</Source>
+      <Name>GUI\crosshair</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\GUI\crosshair.xnb</Output>
+      <Time>2013-12-02T19:41:54.5295442+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\LaserMap.tga</Source>
+      <Name>Models\LaserMap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap.xnb</Output>
+      <Time>2013-12-02T19:41:53.780694+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Tardis.tga</Source>
+      <Name>Models\tardis</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\tardis.xnb</Output>
+      <Time>2013-12-02T19:41:53.6527196+00:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\empty.png</Source>
+      <Name>GUI\empty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\GUI\empty.xnb</Output>
+      <Time>2013-12-02T19:41:54.5175466+00:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\grad.png</Source>
+      <Name>GUI\grad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\GUI\grad.xnb</Output>
+      <Time>2013-12-02T19:41:54.4915518+00:00</Time>
+    </Item>
+    <Item>
       <Source>Models\dalek.x</Source>
       <Name>Models\dalek</Name>
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\dalek.xnb</Output>
-      <Time>2013-12-02T16:37:37.786561+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\dalek.xnb</Output>
+      <Time>2013-12-02T19:41:53.6827136+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\dalek_0.xml</Key>
-        <Value>2013-12-02T16:39:48.477016+00:00</Value>
+        <Value>2013-12-02T19:42:16.7850922+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -20,13 +65,13 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\tardismodel.xnb</Output>
-      <Time>2013-12-02T16:37:37.7237185+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\tardismodel.xnb</Output>
+      <Time>2013-12-02T19:41:53.8016898+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\tardis_0.xml</Key>
-        <Value>2013-12-02T16:39:48.6376135+00:00</Value>
+        <Value>2013-12-02T19:42:16.9020688+00:00</Value>
       </Dependency>
-      <Request>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Request>
+      <Request>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Request>
     </Item>
     <Item>
       <Source>Skybox\skybox.x</Source>
@@ -34,17 +79,17 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\skybox.xnb</Output>
-      <Time>2013-12-02T16:37:37.6419235+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Skybox\skybox.xnb</Output>
+      <Time>2013-12-02T19:41:54.415567+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Skybox\skybox_0.xml</Key>
-        <Value>2013-12-02T16:39:48.796216+00:00</Value>
+        <Value>2013-12-02T19:42:17.0590374+00:00</Value>
       </Dependency>
-      <Request>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Request>
-      <Request>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Request>
-      <Request>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Request>
-      <Request>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Request>
-      <Request>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Request>
+      <Request>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Request>
+      <Request>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Request>
+      <Request>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Request>
+      <Request>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Request>
+      <Request>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\laser.fbx</Source>
@@ -52,13 +97,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\laser.xnb</Output>
-      <Time>2013-12-02T16:37:37.686811+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\laser.xnb</Output>
+      <Time>2013-12-02T19:41:53.6977106+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\laser_0.xml</Key>
-        <Value>2013-12-02T16:39:49.504441+00:00</Value>
+        <Value>2013-12-02T19:42:18.9016688+00:00</Value>
       </Dependency>
-      <Request>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Request>
+      <Request>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\ship.FBX</Source>
@@ -66,76 +111,53 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\ship.xnb</Output>
-      <Time>2013-12-02T16:37:37.756636+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\ship.xnb</Output>
+      <Time>2013-12-02T19:41:53.8916718+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\ship_0.xml</Key>
-        <Value>2013-12-02T16:39:50.8201435+00:00</Value>
+        <Value>2013-12-02T19:42:19.6845122+00:00</Value>
       </Dependency>
-      <Request>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Request>
+      <Request>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Request>
     </Item>
     <Item>
-      <Source>Models\LaserMap.tga</Source>
-      <Name>Models\LaserMap</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Source>Models\terrain.FBX</Source>
+      <Name>Models\terrain</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap.xnb</Output>
-      <Time>2013-12-02T16:37:37.672846+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\terrain.xnb</Output>
+      <Time>2013-12-02T19:41:53.945661+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\terrain_0.xml</Key>
+        <Value>2013-12-02T19:42:20.2793932+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\17  desert\sand tex_0.xnb</Request>
     </Item>
     <Item>
-      <Source>Models\Tardis.tga</Source>
-      <Name>Models\tardis</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Source>Models\laser1.fbx</Source>
+      <Name>Models\laser1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\tardis.xnb</Output>
-      <Time>2013-12-02T16:37:37.7097535+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\laser1.xnb</Output>
+      <Time>2013-12-02T19:41:53.6297242+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\laser1_0.xml</Key>
+        <Value>2013-12-02T19:42:20.4433604+00:00</Value>
+      </Dependency>
     </Item>
     <Item>
-      <Source>Skybox\clear_back.JPG</Source>
-      <Name>Skybox\clear_back</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Source>Models\enemy.FBX</Source>
+      <Name>Models\enemy</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_back.xnb</Output>
-      <Time>2013-12-02T16:37:37.6020235+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Skybox\clear_front.JPG</Source>
-      <Name>Skybox\clear_front</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_front.xnb</Output>
-      <Time>2013-12-02T16:37:37.6558885+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Skybox\clear_left.JPG</Source>
-      <Name>Skybox\clear_left</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_left.xnb</Output>
-      <Time>2013-12-02T16:37:37.589056+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Skybox\clear_right.JPG</Source>
-      <Name>Skybox\clear_right</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_right.xnb</Output>
-      <Time>2013-12-02T16:37:37.614991+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Skybox\clear_top.JPG</Source>
-      <Name>Skybox\clear_top</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_top.xnb</Output>
-      <Time>2013-12-02T16:37:37.6279585+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\enemy.xnb</Output>
+      <Time>2013-12-02T19:41:53.8496802+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\enemy_0.xml</Key>
+        <Value>2013-12-02T19:42:20.5643362+00:00</Value>
+      </Dependency>
     </Item>
     <Item>
       <Source>Fonts\GameFont.spritefont</Source>
@@ -143,22 +165,22 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Fonts\GameFont.xnb</Output>
-      <Time>2013-12-02T16:37:37.3307035+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Fonts\GameFont.xnb</Output>
+      <Time>2013-12-02T19:41:53.6137274+00:00</Time>
     </Item>
     <Item>
       <Source>Models\dalek.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\dalek_0.xml</Output>
-      <Time>2013-12-02T16:37:37.786561+00:00</Time>
+      <Time>2013-12-02T19:41:53.6827136+00:00</Time>
     </Item>
     <Item>
       <Source>Models\tardis.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\tardis_0.xml</Output>
-      <Time>2013-12-02T16:37:37.7237185+00:00</Time>
+      <Time>2013-12-02T19:41:53.8016898+00:00</Time>
     </Item>
     <Item>
       <Source>Models\Tardis.tga</Source>
@@ -173,15 +195,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Output>
-      <Time>2013-12-02T16:37:37.7097535+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Output>
+      <Time>2013-12-02T19:41:53.6527196+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\skybox.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Skybox\skybox_0.xml</Output>
-      <Time>2013-12-02T16:37:37.6419235+00:00</Time>
+      <Time>2013-12-02T19:41:54.415567+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_top.jpg</Source>
@@ -196,8 +218,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Output>
-      <Time>2013-12-02T16:37:37.6279585+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Output>
+      <Time>2013-12-02T19:41:54.2935914+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_right.jpg</Source>
@@ -212,8 +234,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Output>
-      <Time>2013-12-02T16:37:37.614991+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Output>
+      <Time>2013-12-02T19:41:54.3335834+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_left.jpg</Source>
@@ -228,8 +250,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Output>
-      <Time>2013-12-02T16:37:37.589056+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Output>
+      <Time>2013-12-02T19:41:54.4025696+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_front.jpg</Source>
@@ -244,8 +266,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Output>
-      <Time>2013-12-02T16:37:37.6558885+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Output>
+      <Time>2013-12-02T19:41:54.3625776+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_back.jpg</Source>
@@ -260,15 +282,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Output>
-      <Time>2013-12-02T16:37:37.6020235+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Output>
+      <Time>2013-12-02T19:41:54.3135874+00:00</Time>
     </Item>
     <Item>
       <Source>Models\laser.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\laser_0.xml</Output>
-      <Time>2013-12-02T16:37:37.686811+00:00</Time>
+      <Time>2013-12-02T19:41:53.6977106+00:00</Time>
     </Item>
     <Item>
       <Source>Models\LaserMap.tga</Source>
@@ -283,15 +305,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Output>
-      <Time>2013-12-02T16:37:37.672846+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Output>
+      <Time>2013-12-02T19:41:53.780694+00:00</Time>
     </Item>
     <Item>
       <Source>Models\ship.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\ship_0.xml</Output>
-      <Time>2013-12-02T16:37:37.756636+00:00</Time>
+      <Time>2013-12-02T19:41:53.8916718+00:00</Time>
     </Item>
     <Item>
       <Source>Models\ARC-170\ARC170_TXT_VERSION_4_D.tga</Source>
@@ -306,8 +328,45 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Output>
-      <Time>2013-12-02T16:37:37.900276+00:00</Time>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Output>
+      <Time>2013-12-02T19:41:54.1046292+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\terrain.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\terrain_0.xml</Output>
+      <Time>2013-12-02T19:41:53.945661+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\17  desert\sand tex.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\Models\17  desert\sand tex_0.xnb</Output>
+      <Time>2013-12-02T19:41:54.1946112+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\laser1.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\laser1_0.xml</Output>
+      <Time>2013-12-02T19:41:53.6297242+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\enemy.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\enemy_0.xml</Output>
+      <Time>2013-12-02T19:41:53.8496802+00:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -315,10 +374,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\CourseworkContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\CourseworkContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\gwhite29\Desktop\Build-4\Coursework\Coursework\Coursework\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\CourseworkContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\CourseworkContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\gwhite29\Desktop\Build-5\Build-5\Coursework\Coursework\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

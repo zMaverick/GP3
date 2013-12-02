@@ -12,47 +12,54 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Coursework
 {
-    public class Projectile : Microsoft.Xna.Framework.GameComponent
+    public class Projectile
     {
 
-        private Vector3 projectilePosition;
-        private Vector3 direction;
-        public float speed;
+        private Vector3 projPosition;
+        private Quaternion projRotation;
+        public float projSpeed;
         public bool isActive;
         Player cPlayer;
-        Vector3 offset = new Vector3(0f, 0f, 1f);
+        Vector3 offset;
+
+        private Boolean fireActive = false;
 
         public Vector3 Position
         {
-            get { return projectilePosition; }
-            set { projectilePosition = value; }
+            get { return projPosition; }
+            set { projPosition = value; }
         }
 
-        public Vector3 Rotation
+        public Quaternion Rotation
         {
-            get { return direction; }
-            set { direction = value; }
+            get { return projRotation; }
+            set { projRotation = value; }
         }
 
 
-        public Projectile(Game game, Player player)
-            : base(game)
+        public Projectile(Vector3 position, Quaternion rotation, float speed, bool pos)
         {
-            cPlayer = player;
+            if (pos)
+            {
+                offset = new Vector3(1.5f, 0f, 1f);
+            }
+            else
+            {
+                offset = new Vector3(-1.5f, 0f, 1f);
+            }
+
+            Matrix playerRotation = Matrix.CreateFromQuaternion(rotation);
+            Vector3 offset1 = Vector3.Transform(offset, rotation);
+
+            projPosition = position + offset1;
+            projRotation = rotation;
+            projSpeed = speed;
         }
 
-        public override void Update(GameTime gameTime)
+        public void UpdateLaser(GameTime gameTime)
         {
-            projectilePosition = cPlayer.Position + offset;
-            //direction = cPlayer.Rotation;
-            //position += direction * speed *
-            //GameConstants.LaserSpeedAdjustment * delta;
-            //if (position.X > GameConstants.PlayfieldSizeX ||
-            //    position.X < -GameConstants.PlayfieldSizeX ||
-            //    position.Z > GameConstants.PlayfieldSizeZ ||
-            //    position.Z < -GameConstants.PlayfieldSizeZ)
-            //    isActive = false;
-            base.Update(gameTime);
+            Vector3 test = Vector3.Transform(new Vector3(0, 0, 1), projRotation);
+            projPosition += test * projSpeed;
         }
     }
 }

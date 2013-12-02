@@ -18,7 +18,8 @@ namespace Coursework
 
         private Vector3 cameraPosition;
         private Vector3 cameraRotation;
-        private Quaternion _cameraRotation;
+        //private Quaternion _cameraRotation;
+
         private float cameraSpeed;
         private Vector3 cameraLookAt;
         private Vector3 cameraUp;
@@ -83,7 +84,7 @@ namespace Coursework
                 MathHelper.PiOver4,
                 Game.GraphicsDevice.Viewport.AspectRatio,
                 0.05f,
-                350.0f);
+                1500.0f);
 
             //cameraSpeed = speed;
             //fov = 45;

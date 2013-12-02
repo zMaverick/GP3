@@ -47,6 +47,11 @@
     <Folder Include="Sprites\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\crosshair.png">
+      <Name>crosshair</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Models\dalek.x">
       <Name>dalek</Name>
       <Importer>XImporter</Importer>
@@ -88,36 +93,44 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Skybox\clear_back.JPG">
-      <Name>clear_back</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+    <Compile Include="Skybox\skybox.x">
+      <Name>skybox</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
     </Compile>
-    <Compile Include="Skybox\clear_front.JPG">
-      <Name>clear_front</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\terrain.FBX">
+      <Name>terrain</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
     </Compile>
-    <Compile Include="Skybox\clear_left.JPG">
-      <Name>clear_left</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\laser1.fbx">
+      <Name>laser1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
     </Compile>
-    <Compile Include="Skybox\clear_right.JPG">
-      <Name>clear_right</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Skybox\clear_top.JPG">
-      <Name>clear_top</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GUI\empty.png">
+      <Name>empty</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Skybox\skybox.x">
-      <Name>skybox</Name>
-      <Importer>XImporter</Importer>
+    <Compile Include="GUI\grad.png">
+      <Name>grad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\enemy.FBX">
+      <Name>enemy</Name>
+      <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>
   </ItemGroup>

@@ -16,23 +16,35 @@ namespace Coursework
     {
         private Camera controlCamera;
         private Player controlPlayer;
-        Game theGame;
+        private Game1 theGame;
 
-        GamePadState oldPadState;
-        GamePadState newPadState;
+        private bool fullScreen = false;
 
-        KeyboardState newKeyState;
-        KeyboardState oldKeyState;  
+        private GamePadState oldPadState;
+        private GamePadState newPadState;
 
-        public InputManager(Game game, Camera camera, Player player)
+        private Vector3 mouseRotBuffer;
+        private MouseState curMouseState;
+        private MouseState preMouseState;
+
+        private KeyboardState newKeyState;
+        private KeyboardState oldKeyState;
+
+        private float delta;
+
+        public InputManager(Game game, Game1 game1, Camera camera, Player player)
             : base(game)
         {
             controlCamera = camera;
             controlPlayer = player;
-            theGame = game;
+
+
+            theGame = game1;
         }
         public override void Update(GameTime gameTime)
         {
+            delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             newPadState = GamePad.GetState(PlayerIndex.One);
             controlPlayer.rotateVector = Vector3.Zero;
 
@@ -91,24 +103,44 @@ namespace Coursework
 
         public void MouseInput()
         {
+            curMouseState = Mouse.GetState();
 
+            float deltaX;
+            float deltaY;
+
+            if (curMouseState != preMouseState)
+            {
+                deltaX = curMouseState.X - (Game.GraphicsDevice.Viewport.Width / 2);
+                deltaY = curMouseState.Y - (Game.GraphicsDevice.Viewport.Height / 2);
+
+                mouseRotBuffer.X -= 0.1f * deltaX * delta;
+                mouseRotBuffer.Y -= 0.1f * deltaY * delta;
+
+                /*if (mouseRotBuffer.Y < MathHelper.ToRadians(-75.0f))
+                    mouseRotBuffer.Y = mouseRotBuffer.Y - (mouseRotBuffer.Y - MathHelper.ToRadians(-75.0f));
+                if (mouseRotBuffer.Y > MathHelper.ToRadians(75.0f))
+                    mouseRotBuffer.Y = mouseRotBuffer.Y - (mouseRotBuffer.Y - MathHelper.ToRadians(75.0f));*/
+
+                /////////////////////////CREATE FROM AXIS ANGLE\\\\\\\\\\\\\\\\\\\\\\\\\
+
+                controlPlayer.Rotation = Quaternion.CreateFromYawPitchRoll(mouseRotBuffer.X, -mouseRotBuffer.Y, controlPlayer.Rotation.Z);
+                //Quaternion tester1 = Quaternion.CreateFromAxisAngle(Vector3.UnitY, mouseRotBuffer.X);
+                //Quaternion tester2 = Quaternion.CreateFromAxisAngle(Vector3.UnitX, mouseRotBuffer.Y);
+
+                deltaX = 0;
+                deltaY = 0;
+
+            }
+            Mouse.SetPosition(Game.GraphicsDevice.Viewport.Width / 2, Game.GraphicsDevice.Viewport.Height / 2);
+
+            preMouseState = curMouseState;
         }
 
         public void ControllerInput()
         {
             controlPlayer.yaw = 2f;
-            controlPlayer.pitch = 1f;
+            controlPlayer.pitch = 2f;
             controlPlayer.roll = 3f;
-            controlPlayer.playerSpeed = 7f;
-
-            if (newPadState.Triggers.Left > 0f)
-            {
-                controlPlayer.Boost(true);
-            }
-            if (newPadState.Triggers.Left == 0f && oldPadState.Triggers.Left > 0f)
-            {
-                controlPlayer.Boost(false);
-            }
 
             if (newPadState.ThumbSticks.Left.Y > 0f)
             {
@@ -122,11 +154,27 @@ namespace Coursework
 
             if (newPadState.Triggers.Right > 0f)
             {
-                controlPlayer.Fire(true);
+                theGame.Fire();
             }
-            if (newPadState.Triggers.Right == 0f && oldPadState.Triggers.Right > 0f)
+
+            //if (newPadState.Triggers.Right == 0f && oldPadState.Triggers.Right > 0f)
+            //{
+            //    theGame.Fire(false);
+            //}
+
+            if (newPadState.Triggers.Left > 0f)
             {
-                controlPlayer.Fire(false);
+                controlPlayer.Boost(true);
+            }
+            if (newPadState.Triggers.Left == 0f && oldPadState.Triggers.Left > 0f)
+            {
+                controlPlayer.Boost(false);
+            }
+
+            if (newPadState.Buttons.Start == ButtonState.Pressed && newPadState != oldPadState)
+            {
+                fullScreen = !fullScreen;
+                theGame.ScreenSize(fullScreen);
             }
 
             /*------------------Roll------------------*/
