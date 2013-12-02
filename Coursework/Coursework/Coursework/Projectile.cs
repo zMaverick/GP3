@@ -44,7 +44,7 @@ namespace Coursework
         public override void Update(GameTime gameTime)
         {
             projectilePosition = cPlayer.Position + offset;
-            direction = cPlayer.Rotation;
+            //direction = cPlayer.Rotation;
             //position += direction * speed *
             //GameConstants.LaserSpeedAdjustment * delta;
             //if (position.X > GameConstants.PlayfieldSizeX ||

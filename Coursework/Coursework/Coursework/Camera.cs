@@ -18,6 +18,7 @@ namespace Coursework
 
         private Vector3 cameraPosition;
         private Vector3 cameraRotation;
+        private Quaternion _cameraRotation;
         private float cameraSpeed;
         private Vector3 cameraLookAt;
         private Vector3 cameraUp;
@@ -68,6 +69,12 @@ namespace Coursework
             get { return cameraLookAt; }
             set { cameraLookAt = value; }
         }
+        public Vector3 Up
+        {
+            get { return cameraUp; }
+            set { cameraUp = value; }
+        }
+
 
         public Camera(Game game, Vector3 position, Vector3 rotation, float speed)
             : base(game)
@@ -91,8 +98,8 @@ namespace Coursework
             //Matrix rotationMatrix = Matrix.CreateRotationX(cameraRotation.X) * Matrix.CreateRotationY(cameraRotation.Y);
 
             //Vector3 lookAtOffset = Vector3.Transform(Vector3.UnitZ, rotationMatrix);
-            Vector3 upOffset = Vector3.Transform(Vector3.Up, Matrix.CreateFromYawPitchRoll(cameraRotation.X, cameraRotation.Y, cameraRotation.Z));
-            cameraUp = upOffset;
+            //Vector3 upOffset = Vector3.Transform(Vector3.Up, Matrix.CreateFromYawPitchRoll(cameraRotation.X, cameraRotation.Y, cameraRotation.Z));
+            //cameraUp = upOffset;
             //cameraLookAt = cameraPosition + lookAtOffset;
 
         }

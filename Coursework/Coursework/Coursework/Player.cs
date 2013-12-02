@@ -15,7 +15,7 @@ namespace Coursework
     public class Player : Microsoft.Xna.Framework.GameComponent
     {
         private Vector3 playerPosition;
-        private Vector3 playerRotation;
+        private Quaternion playerRotation;
 
         public Vector3 moveVector;
         public Vector3 rotateVector;
@@ -45,22 +45,20 @@ namespace Coursework
             set { playerPosition = value; }
         }
 
-        public Vector3 Rotation
+        public Quaternion Rotation
         {
             get { return playerRotation; }
             set { playerRotation = value; }
         }
 
-        public Player(Game game, Camera camera, Vector3 spawnPosition, Vector3 spawnRotation)
+        public Player(Game game, Camera camera, Vector3 spawnPosition, Quaternion spawnRotation)
             : base(game)
         {
-            //playerSpeed = speed;
             controlCamera = camera;
-
             MoveTo(spawnPosition, spawnRotation);
         }
 
-        private void MoveTo(Vector3 newPosition, Vector3 newRotation)
+        private void MoveTo(Vector3 newPosition, Quaternion newRotation)
         {
             Position = newPosition;
             Rotation = newRotation;
@@ -77,32 +75,18 @@ namespace Coursework
 
         private Vector3 PreviewMove(Vector3 amount)
         {
-            //Matrix rotX = Matrix.CreateRotationX(playerPosition.X);Matrix rotY = Matrix.CreateRotationY(playerPosition.Y);Matrix rotZ = Matrix.CreateRotationZ(playerPosition.Z);
-            //Matrix rotation = rotX * rotY * rotZ;
+            Matrix rotation = Matrix.CreateFromQuaternion(playerRotation);
 
-            Matrix rotation = Matrix.CreateFromYawPitchRoll(playerRotation.X, playerRotation.Y, playerRotation.Z);
-            
             Vector3 movement = new Vector3(amount.X, amount.Y, amount.Z);
             movement = Vector3.Transform(movement, rotation);
 
             return playerPosition + movement;
         }
 
-        private Vector3 PreviewRotate(Vector3 amount)
+        private Quaternion PreviewRotate(Vector3 amount)
         {
-            //Matrix rotY = Matrix.CreateRotationY(playerPosition.Y);
-            //Matrix rotX = Matrix.CreateRotationX(playerPosition.X);
-
-            //Matrix rotation = /*rotX * */rotY;
-            //movement = Vector3.Transform(movement, rotation);
-
-            /* VERY WONKY */
-            Matrix tester = Matrix.CreateFromYawPitchRoll(playerRotation.Y, playerRotation.X, playerRotation.Z);
-            Vector3 rotation = new Vector3(amount.X, amount.Y, amount.Z);
-
-            rotation = Vector3.Transform(rotation, tester);
-
-            return playerRotation + rotation;
+            Quaternion rotation = Quaternion.CreateFromYawPitchRoll(amount.X, amount.Y, amount.Z);
+            return playerRotation * rotation;
         }
 
         private void Move(Vector3 scale)
@@ -117,12 +101,12 @@ namespace Coursework
 
         public void attachCamera()
         {
-            Matrix rotation = Matrix.CreateFromYawPitchRoll(playerRotation.X, playerRotation.Y, playerRotation.Z);
+            Matrix rotation = Matrix.CreateFromQuaternion(playerRotation);
             Vector3 offset = Vector3.Transform(cameraOffset, rotation);
             
             controlCamera.Position = playerPosition + offset;
             controlCamera.LookAt = playerPosition;
-            controlCamera.Rotation = playerRotation;
+            controlCamera.Up = Vector3.Transform(Vector3.Up, playerRotation);
         }
 
         public override void Update(GameTime gameTime)
@@ -164,7 +148,8 @@ namespace Coursework
                 if (mouseRotBuffer.Y > MathHelper.ToRadians(75.0f))
                     mouseRotBuffer.Y = mouseRotBuffer.Y - (mouseRotBuffer.Y - MathHelper.ToRadians(75.0f));*/
 
-                playerRotation = new Vector3(mouseRotBuffer.X, -mouseRotBuffer.Y, playerRotation.Z);
+                /////////////////////////CREATE FROM AXIS ANGLE\\\\\\\\\\\\\\\\\\\\\\\\\
+                playerRotation = Quaternion.CreateFromYawPitchRoll(mouseRotBuffer.X, -mouseRotBuffer.Y, playerRotation.Z);
 
                 deltaX = 0;
                 deltaY = 0;

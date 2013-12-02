@@ -105,7 +105,7 @@ namespace Coursework
             Window.Title = "Gavin Whitehall - Coursework";
             mainCamera = new Camera(this, new Vector3(10f, 1f, 5f), Vector3.Zero, 5f);
             Components.Add(mainCamera);
-            player = new Player(this, mainCamera, playerPosition, playerRotation);
+            player = new Player(this, mainCamera, playerPosition, Quaternion.Identity);
             Components.Add(player);
             input = new InputManager(this, mainCamera, player);
             Components.Add(input);
@@ -158,7 +158,8 @@ namespace Coursework
             //    Matrix.CreateRotationZ(player.Rotation.Z)) * Matrix.CreateTranslation(player.Position);
             //Matrix playerTransform = Matrix.CreateRotationY(player.Rotation.Y) * Matrix.CreateTranslation(player.Position);
 
-            Matrix playerTransform = Matrix.CreateScale(playerScale) * Matrix.CreateFromYawPitchRoll(player.Rotation.X, player.Rotation.Y, player.Rotation.Z) * Matrix.CreateTranslation(player.Position);
+            //Matrix playerTransform = Matrix.CreateScale(playerScale) * Matrix.CreateFromYawPitchRoll(player.Rotation.X, player.Rotation.Y, player.Rotation.Z) * Matrix.CreateTranslation(player.Position);
+            Matrix playerTransform =  Matrix.CreateScale(playerScale) * Matrix.CreateFromQuaternion(player.Rotation) * Matrix.CreateTranslation(player.Position);
             DrawModel(mPlayer, playerTransform, mPlayerTransforms);
 
             Matrix terrainTransform = Matrix.CreateScale(terrainScale) * Matrix.CreateTranslation(terrainPosition);
@@ -169,8 +170,6 @@ namespace Coursework
 
             String boost = player.boostTimer.ToString();
             WriteText(boost, new Vector2(50f,50f), Color.Black);
-
-            
 
             base.Draw(gameTime);
         }
