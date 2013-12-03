@@ -18,7 +18,7 @@ namespace Coursework
         private Vector3 projPosition;
         private Quaternion projRotation;
         public float projSpeed;
-        public bool isActive;
+        public bool isActive = true;
         Player cPlayer;
         Vector3 offset;
 
@@ -37,17 +37,30 @@ namespace Coursework
         }
 
 
-        public Projectile(Vector3 position, Quaternion rotation, float speed, bool pos)
+        public Projectile(Vector3 position, Quaternion rotation, float speed, bool pos, bool isPlayer)
         {
-            if (pos)
+            if (isPlayer)
             {
-                offset = new Vector3(1.5f, 0f, 1f);
+                if (pos)
+                {
+                    offset = new Vector3(1.5f, 0f, 1f);
+                }
+                else
+                {
+                    offset = new Vector3(-1.5f, 0f, 1f);
+                }
             }
             else
             {
-                offset = new Vector3(-1.5f, 0f, 1f);
+                if (pos)
+                {
+                    offset = new Vector3(0.9f, 0f, 1f);
+                }
+                else
+                {
+                    offset = new Vector3(-0.9f, 0f, 1f);
+                }
             }
-
             Matrix playerRotation = Matrix.CreateFromQuaternion(rotation);
             Vector3 offset1 = Vector3.Transform(offset, rotation);
 
@@ -58,8 +71,11 @@ namespace Coursework
 
         public void UpdateLaser(GameTime gameTime)
         {
-            Vector3 test = Vector3.Transform(new Vector3(0, 0, 1), projRotation);
-            projPosition += test * projSpeed;
+            if (isActive)
+            {
+                Vector3 test = Vector3.Transform(new Vector3(0, 0, 1), projRotation);
+                projPosition += test * projSpeed;
+            }
         }
     }
 }

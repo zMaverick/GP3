@@ -20,11 +20,17 @@ namespace Coursework
         private float playerDistance;
         private float attackDistance = 100f;
 
+        Game1 theGame;
+
         private Vector3 moveVector;
         private Vector3 rotateVector;
 
-        private float enemySpeed = 9f;
+        private float enemySpeed = 12f;
         private Player targetPlayer;
+
+        public bool isActive = true;
+
+        double lastLaserTime = 0;
 
         public Vector3 Position
         {
@@ -38,49 +44,69 @@ namespace Coursework
             set { enemyRotation = value; }
         }
 
-        public Enemy(Game game, Vector3 spawnPosition, Quaternion spawnRotation, Player player)
+        public Enemy(Game game, Game1 game1, Vector3 spawnPosition, Quaternion spawnRotation, Player player)
             : base(game)
         {
             enemyPosition = spawnPosition;
             enemyRotation = spawnRotation;
             targetPlayer = player;
+            theGame = game1;
         }
 
         public override void Update(GameTime gameTime)
         {
-            float delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            playerDistance = Vector3.Distance(enemyPosition, targetPlayer.Position);
-
-            if (playerDistance <= attackDistance)
+            if (isActive)
             {
-                Attack();
-                moveVector.Z = -1;
-            }
+                float delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
+                playerDistance = Vector3.Distance(enemyPosition, targetPlayer.Position);
 
-            if (moveVector != Vector3.Zero)
-            {
-                moveVector.Normalize();
-                moveVector *= delta * enemySpeed;
-                Move(moveVector);
-            }
+                if (playerDistance <= attackDistance)
+                {
+                    Attack(gameTime);
+                    moveVector.Z = 1;
+                    attackDistance = 200f;
+                }
+                if (playerDistance >= attackDistance)
+                {
+                    attackDistance = 100f;
+                }
 
-            base.Update(gameTime);
+                if (moveVector != Vector3.Zero)
+                {
+                    moveVector.Normalize();
+                    moveVector *= delta * enemySpeed;
+                    Move(moveVector);
+                }
+
+                base.Update(gameTime);
+            }
         }
 
-        public void Attack()
+        public void Attack(GameTime gTime)
         {
-            enemyRotation = Quaternion.CreateFromRotationMatrix(LookAt(enemyPosition, targetPlayer.Position));
+            double currentTime = gTime.TotalGameTime.TotalMilliseconds;
+
+            enemyRotation = Follow(enemyPosition, targetPlayer.Position);
+
+            if (currentTime - lastLaserTime > 1000)
+            {
+                theGame.EnemyFire(enemyPosition, enemyRotation);
+                lastLaserTime = currentTime;
+            }
         }
 
-        public Matrix LookAt(Vector3 position, Vector3 lookat)
+        public Quaternion Follow(Vector3 position, Vector3 lookat)
         {
             Matrix rotation = new Matrix();
+            Matrix test1 = Matrix.CreateFromQuaternion(targetPlayer.Rotation);
 
-            rotation.Forward = Vector3.Normalize(lookat - position);
-            rotation.Right = Vector3.Normalize(Vector3.Cross(rotation.Forward, Vector3.Up));
+            rotation.Forward = -Vector3.Normalize(lookat - position);
+            rotation.Right = Vector3.Normalize(Vector3.Cross(rotation.Forward, test1.Up));
             rotation.Up = Vector3.Normalize(Vector3.Cross(rotation.Right, rotation.Forward));
 
-            return rotation;
+            Quaternion newRot = Quaternion.CreateFromRotationMatrix(rotation);
+
+            return newRot;
         }
 
         private void MoveTo(Vector3 newPosition, Quaternion newRotation)

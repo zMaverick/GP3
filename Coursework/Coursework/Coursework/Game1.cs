@@ -40,9 +40,15 @@ namespace Coursework
         private Model mLaser;
         private Matrix[] mLaserTransforms;
         private float laserScale = 1f;
-        List<Projectile> laserList = new List<Projectile>(); 
+        List<Projectile> laserList = new List<Projectile>();
+        List<Projectile> enLaserList = new List<Projectile>(); 
         double lastLaserTime = 0;
         bool firePos = true;
+
+
+        private Model mEnemyLaser;
+        private Matrix[] mEnemyLaserTransforms;
+        bool enFirePos = true;
 
         private Model mTerrain;
         private Matrix[] mTerrainTransforms;
@@ -51,7 +57,7 @@ namespace Coursework
 
         private Model mSkyBox;
         private Matrix[] mSkyBoxTransforms;
-        private Vector3 skyboxPosition = new Vector3(0f, -0f, 0f);
+        private Vector3 skyboxPosition = new Vector3(0f, 100f, 0f);
         private float skyboxScale = 400f;
 
         Camera mainCamera;
@@ -124,7 +130,7 @@ namespace Coursework
                 enemyPosition.Y = (float)random.Next(200, 350);
                 enemyPosition.Z = (float)random.Next(-400, 400);
 
-                Enemy enemy = new Enemy(this, enemyPosition, enemyRotation, player);
+                Enemy enemy = new Enemy(this, this, enemyPosition, enemyRotation, player);
                 enemyList.Add(enemy);
                 Components.Add(enemy);
             }
@@ -154,7 +160,9 @@ namespace Coursework
             mSkyBoxTransforms = SetupEffectTransformDefaults(mSkyBox, false);
 
             mEnemy = Content.Load<Model>(".\\Models\\enemy");
-            mEnemyTransforms = SetupEffectTransformDefaults(mEnemy, false);
+            mEnemyTransforms = SetupEffectTransformDefaults(mEnemy, true);
+            mEnemyLaser = Content.Load<Model>(".\\Models\\EnemyLaser");
+            mEnemyLaserTransforms = SetupEffectTransformDefaults(mEnemyLaser, true);
 
             empty = Content.Load<Texture2D>(".\\GUI\\empty");
             gradient = Content.Load<Texture2D>(".\\GUI\\grad");
@@ -178,8 +186,12 @@ namespace Coursework
                 laserList[i].UpdateLaser(gameTime);
             }
 
+            for (int i = 0; i < enLaserList.Count; i++)
+            {
+                enLaserList[i].UpdateLaser(gameTime);
+            }
             //Collisions
-            BoundingSphere playerSphere = new BoundingSphere(player.Position, mPlayer.Meshes[0].BoundingSphere.Radius * playerScale);
+            BoundingSphere playerSphere = new BoundingSphere(player.Position, 5f);
 
             for (int i = 0; i < laserList.Count; i++)
             {
@@ -189,6 +201,7 @@ namespace Coursework
                 {
                     if (laserSphere.Intersects(boundingArea[j]))
                     {
+                        laserList[i].isActive = false;
                         laserList.Remove(laserList[i]);
                     }
                 }
@@ -198,9 +211,33 @@ namespace Coursework
 
                     if (laserSphere.Intersects(enemySphere))
                     {
+                        enemyList[e].isActive = false;
                         enemyList.Remove(enemyList[e]);
+                        laserList[i].isActive = false;
                         laserList.Remove(laserList[i]);
                     }
+                }
+
+            }
+
+            for (int i = 0; i < enLaserList.Count; i++)
+            {
+                BoundingSphere enLaserSphere = new BoundingSphere(enLaserList[i].Position, 1f);
+
+                for (int j = 0; j < boundingArea.Count; j++)
+                {
+                    if (enLaserSphere.Intersects(boundingArea[j]))
+                    {
+                        enLaserList[i].isActive = false;
+                        enLaserList.Remove(enLaserList[i]);
+                    }
+                }
+
+                if (enLaserSphere.Intersects(playerSphere))
+                {
+                    player.Damage();
+                    enLaserList[i].isActive = false;
+                    enLaserList.Remove(enLaserList[i]);
                 }
 
             }
@@ -251,11 +288,11 @@ namespace Coursework
             String boost = boostTimer.ToString();
             int booster = (int)player.boostTimer;
 
-            DrawGUI(empty, new Vector2(screenWidth / 1.3f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5), Color.DarkGray, false);
+            DrawGUI(gradient, new Vector2(screenWidth / 1.3f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5), Color.DarkGray, false);
             DrawGUI(gradient, new Vector2(screenWidth / 1.3f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5 * (boostTimer / 100)), Color.DeepSkyBlue, false);
 
-            DrawGUI(empty, new Vector2(screenWidth / 30f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5), Color.DarkGray, false);
-            DrawGUI(gradient, new Vector2(screenWidth / 30f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5 * (player.health / 100)), Color.DarkRed , false);
+            DrawGUI(gradient, new Vector2(screenWidth / 30f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5), Color.DarkGray, false);
+            DrawGUI(gradient, new Vector2(screenWidth / 30f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5 * ((double)player.health / 100)), Color.DarkRed, false);
 
             DrawGUI(empty, new Vector2(screenWidth / 2f, screenHeight / 16f), (int)(screenHeight / 10), (int)(screenWidth / 10), Color.DarkGray, true);
             WriteText(enemyList.Count.ToString(), new Vector2(screenWidth / 2f, screenHeight / 16f), Color.White);
@@ -330,12 +367,18 @@ namespace Coursework
             if (currentTime - lastLaserTime > 50)
             {
                 firePos = !firePos;
-                Projectile newLaser = new Projectile(player.Position, player.Rotation, 1f, firePos);
+                Projectile newLaser = new Projectile(player.Position, player.Rotation, 1f, firePos, true);
                 laserList.Add(newLaser);
 
                 lastLaserTime = currentTime;
             }
 
+        }
+        public void EnemyFire(Vector3 position, Quaternion rotation)
+        {
+            enFirePos = !enFirePos;
+            Projectile newLaser = new Projectile(position, rotation, 1f, enFirePos, false);
+            enLaserList.Add(newLaser);
         }
 
         private Matrix[] SetupEffectTransformDefaults(Model myModel, bool lighting)
@@ -410,11 +453,17 @@ namespace Coursework
 
         public void DrawLaser()
         {
-                for (int i = 0; i < laserList.Count; i++)
-                {
-                    Matrix laserTransform = Matrix.CreateScale(laserScale) * Matrix.CreateFromQuaternion(laserList[i].Rotation) * Matrix.CreateTranslation(laserList[i].Position);
-                    DrawModel(mLaser, laserTransform, mLaserTransforms);
-                }
+            for (int i = 0; i < laserList.Count; i++)
+            {
+                Matrix laserTransform = Matrix.CreateScale(laserScale) * Matrix.CreateFromQuaternion(laserList[i].Rotation) * Matrix.CreateTranslation(laserList[i].Position);
+                DrawModel(mLaser, laserTransform, mLaserTransforms);
+            }
+
+            for (int i = 0; i < enLaserList.Count; i++)
+            {
+                Matrix enLaserTransform = Matrix.CreateScale(laserScale) * Matrix.CreateFromQuaternion(enLaserList[i].Rotation) * Matrix.CreateTranslation(enLaserList[i].Position);
+                DrawModel(mEnemyLaser, enLaserTransform, mEnemyLaserTransforms);
+            }
         }
 
         public void DrawSkyBox()

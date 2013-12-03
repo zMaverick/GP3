@@ -11,6 +11,7 @@ Content\Models\ship.xnb
 Content\Models\terrain.xnb
 Content\Models\laser1.xnb
 Content\Models\enemy.xnb
+Content\Models\EnemyLaser.xnb
 Content\Fonts\GameFont.xnb
 Content\Models\Tardis_0.xnb
 Content\Skybox\clear_top_0.xnb

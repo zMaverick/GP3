@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\GUI\crosshair.xnb</Output>
-      <Time>2013-12-02T09:56:44.0142539+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\GUI\crosshair.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\LaserMap.tga</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap.xnb</Output>
-      <Time>2013-12-02T09:56:42.7438447+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\Tardis.tga</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\tardis.xnb</Output>
-      <Time>2013-12-02T09:56:42.9221829+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\tardis.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>GUI\empty.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\GUI\empty.xnb</Output>
-      <Time>2013-12-02T09:56:44.1094344+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\GUI\empty.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>GUI\grad.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\GUI\grad.xnb</Output>
-      <Time>2013-12-02T09:56:44.0964097+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\GUI\grad.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\dalek.x</Source>
@@ -52,11 +52,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\dalek.xnb</Output>
-      <Time>2013-12-02T09:56:42.8851126+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\dalek.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\dalek_0.xml</Key>
-        <Value>2013-12-02T10:04:06.1496346+00:00</Value>
+        <Value>2013-12-03T19:54:51.225144+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -65,13 +65,13 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\tardismodel.xnb</Output>
-      <Time>2013-12-02T09:56:42.9362095+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\tardismodel.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\tardis_0.xml</Key>
-        <Value>2013-12-02T10:04:06.2906769+00:00</Value>
+        <Value>2013-12-03T19:54:51.3821529+00:00</Value>
       </Dependency>
-      <Request>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Request>
     </Item>
     <Item>
       <Source>Skybox\skybox.x</Source>
@@ -79,17 +79,17 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Skybox\skybox.xnb</Output>
-      <Time>2013-12-02T09:56:43.5062906+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\skybox.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Skybox\skybox_0.xml</Key>
-        <Value>2013-12-02T10:04:06.5407519+00:00</Value>
+        <Value>2013-12-03T19:54:51.6191665+00:00</Value>
       </Dependency>
-      <Request>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Request>
-      <Request>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Request>
-      <Request>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Request>
-      <Request>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Request>
-      <Request>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\laser.fbx</Source>
@@ -97,13 +97,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\laser.xnb</Output>
-      <Time>2013-12-02T09:56:42.9001411+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\laser.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\laser_0.xml</Key>
-        <Value>2013-12-02T10:04:08.4653291+00:00</Value>
+        <Value>2013-12-03T19:54:53.8962967+00:00</Value>
       </Dependency>
-      <Request>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\ship.FBX</Source>
@@ -111,13 +111,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\ship.xnb</Output>
-      <Time>2013-12-02T09:56:42.8440347+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\ship.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\ship_0.xml</Key>
-        <Value>2013-12-02T10:04:09.2895763+00:00</Value>
+        <Value>2013-12-03T19:54:55.1303673+00:00</Value>
       </Dependency>
-      <Request>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\terrain.FBX</Source>
@@ -125,13 +125,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\terrain.xnb</Output>
-      <Time>2013-12-02T09:56:42.8069644+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\terrain.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\terrain_0.xml</Key>
-        <Value>2013-12-02T10:04:09.8917569+00:00</Value>
+        <Value>2013-12-03T19:54:55.9254128+00:00</Value>
       </Dependency>
-      <Request>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\17  desert\sand tex_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\17  desert\sand tex_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\laser1.fbx</Source>
@@ -139,11 +139,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\laser1.xnb</Output>
-      <Time>2013-12-02T09:56:42.8550556+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\laser1.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\laser1_0.xml</Key>
-        <Value>2013-12-02T10:04:10.0548058+00:00</Value>
+        <Value>2013-12-03T19:54:56.1314246+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -152,11 +152,24 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\enemy.xnb</Output>
-      <Time>2013-12-02T09:56:42.7789112+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\enemy.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\enemy_0.xml</Key>
-        <Value>2013-12-02T10:04:10.178843+00:00</Value>
+        <Value>2013-12-03T19:54:56.2914337+00:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\EnemyLaser.fbx</Source>
+      <Name>Models\EnemyLaser</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\EnemyLaser.xnb</Output>
+      <Time>2013-12-02T18:19:50+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\EnemyLaser_0.xml</Key>
+        <Value>2013-12-03T19:54:56.3364363+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -165,22 +178,22 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Fonts\GameFont.xnb</Output>
-      <Time>2013-12-02T09:56:44.1274686+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Fonts\GameFont.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\dalek.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\dalek_0.xml</Output>
-      <Time>2013-12-02T09:56:42.8851126+00:00</Time>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\tardis.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\tardis_0.xml</Output>
-      <Time>2013-12-02T09:56:42.9362095+00:00</Time>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\Tardis.tga</Source>
@@ -195,15 +208,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Output>
-      <Time>2013-12-02T09:56:42.9221829+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\skybox.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Skybox\skybox_0.xml</Output>
-      <Time>2013-12-02T09:56:43.5062906+00:00</Time>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_top.jpg</Source>
@@ -218,8 +231,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Output>
-      <Time>2013-12-02T09:56:43.5233229+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_right.jpg</Source>
@@ -234,8 +247,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Output>
-      <Time>2013-12-02T09:56:43.4331519+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_left.jpg</Source>
@@ -250,8 +263,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Output>
-      <Time>2013-12-02T09:56:43.4732279+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_front.jpg</Source>
@@ -266,8 +279,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Output>
-      <Time>2013-12-02T09:56:43.4531899+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_back.jpg</Source>
@@ -282,15 +295,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Output>
-      <Time>2013-12-02T09:56:43.4932659+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\laser.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\laser_0.xml</Output>
-      <Time>2013-12-02T09:56:42.9001411+00:00</Time>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\LaserMap.tga</Source>
@@ -305,15 +318,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Output>
-      <Time>2013-12-02T09:56:42.7438447+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\ship.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\ship_0.xml</Output>
-      <Time>2013-12-02T09:56:42.8440347+00:00</Time>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\ARC-170\ARC170_TXT_VERSION_4_D.tga</Source>
@@ -328,15 +341,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Output>
-      <Time>2013-12-02T09:56:43.3760436+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\terrain.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\terrain_0.xml</Output>
-      <Time>2013-12-02T09:56:42.8069644+00:00</Time>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\17  desert\sand tex.jpg</Source>
@@ -351,22 +364,29 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\Models\17  desert\sand tex_0.xnb</Output>
-      <Time>2013-12-02T09:56:43.0233748+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\17  desert\sand tex_0.xnb</Output>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\laser1.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\laser1_0.xml</Output>
-      <Time>2013-12-02T09:56:42.8550556+00:00</Time>
+      <Time>2013-12-02T16:43:42+00:00</Time>
     </Item>
     <Item>
       <Source>Models\enemy.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\enemy_0.xml</Output>
-      <Time>2013-12-02T09:56:42.7789112+00:00</Time>
+      <Time>2013-12-02T16:43:42+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\EnemyLaser.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\EnemyLaser_0.xml</Output>
+      <Time>2013-12-02T18:19:50+00:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -374,39 +394,39 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\CourseworkContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\CourseworkContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\gwhite29\Desktop\Build-6 (Current)\Coursework\Coursework\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\CourseworkContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\CourseworkContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T11:41:18+00:00</Value>
+        <Value>2010-08-23T13:41:18+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T11:41:18+00:00</Value>
+        <Value>2010-08-23T13:41:18+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T11:41:18+00:00</Value>
+        <Value>2010-08-23T13:41:18+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T11:41:18+00:00</Value>
+        <Value>2010-08-23T13:41:18+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T11:41:18+00:00</Value>
+        <Value>2010-08-23T13:41:18+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T11:41:18+00:00</Value>
+        <Value>2010-08-23T13:41:18+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-09-16T14:31:57.7164426+00:00</Value>
+        <Value>2012-01-26T23:53:55.5422817+00:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

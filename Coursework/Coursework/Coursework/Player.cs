@@ -151,6 +151,11 @@ namespace Coursework
 
         }
 
+        public void Damage()
+        {
+            health = health - 5;
+        }
+
         public void Boost(Boolean active)
         {
             boostActive = active;
