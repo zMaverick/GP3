@@ -25,6 +25,17 @@ namespace Coursework
         private Vector3 playerRotation = Vector3.Zero;
         private float playerScale = 0.01f;
 
+        List<Enemy> enemyList = new List<Enemy>();
+        private Model mEnemy;
+        private Matrix[] mEnemyTransforms;
+        private Vector3 enemyPosition = new Vector3(0f, 200f, 0f);
+        private Quaternion enemyRotation = Quaternion.Identity;
+        private float enemyScale = 0.002f;
+
+        private const int numEnemies = 10;
+
+        Random random = new Random();
+
         //Projectile laser;
         private Model mLaser;
         private Matrix[] mLaserTransforms;
@@ -38,18 +49,16 @@ namespace Coursework
         private Vector3 terrainPosition = new Vector3(0f, -120f, 0f);
         private float terrainScale = 6f;
 
-        private Model mEnemy;
-        private Matrix[] mEnemyTransforms;
-        private Vector3 enemyPosition = new Vector3(0f, 200f, 0f);
-        private float enemyScale = 0.002f;
-
         private Model mSkyBox;
         private Matrix[] mSkyBoxTransforms;
         private Vector3 skyboxPosition = new Vector3(0f, -0f, 0f);
         private float skyboxScale = 400f;
 
         Camera mainCamera;
-        Floor floor;
+        Camera secCamera;
+
+        Camera selectedCamera;
+
         private BasicEffect effect;
 
         GameTime gTime;
@@ -93,16 +102,32 @@ namespace Coursework
         protected override void Initialize()
         {
             Window.Title = "Gavin Whitehall - Coursework";
+
+
             mainCamera = new Camera(this, new Vector3(10f, 1f, 5f), Vector3.Zero, 5f);
             Components.Add(mainCamera);
-            player = new Player(this, mainCamera, playerPosition, Quaternion.Identity);
+
+            secCamera = new Camera(this, new Vector3(10f, 1f, 5f), Vector3.Zero, 5f);
+            Components.Add(secCamera);
+
+            player = new Player(this, mainCamera, secCamera, playerPosition, Quaternion.Identity);
             Components.Add(player);
-            
-            floor = new Floor(GraphicsDevice, 50, 50);
+
+            selectedCamera = mainCamera;
             effect = new BasicEffect(GraphicsDevice);
             input = new InputManager(this, this, mainCamera, player);
             Components.Add(input);
-            base.Initialize();
+
+            for (int i = 0; i < numEnemies; i++)
+            {
+                enemyPosition.X = (float)random.Next(-400,400);
+                enemyPosition.Y = (float)random.Next(200, 350);
+                enemyPosition.Z = (float)random.Next(-400, 400);
+
+                Enemy enemy = new Enemy(this, enemyPosition, enemyRotation, player);
+                enemyList.Add(enemy);
+                Components.Add(enemy);
+            }
 
             boundingArea.Add(frontWall); 
             boundingArea.Add(backWall);
@@ -110,6 +135,8 @@ namespace Coursework
             boundingArea.Add(rightWall);
             boundingArea.Add(topWall);
             boundingArea.Add(bottomWall);
+
+            base.Initialize();
         }
 
         protected override void LoadContent()
@@ -153,7 +180,6 @@ namespace Coursework
 
             //Collisions
             BoundingSphere playerSphere = new BoundingSphere(player.Position, mPlayer.Meshes[0].BoundingSphere.Radius * playerScale);
-            BoundingBox floorBox = new BoundingBox (Vector3.Zero, new Vector3(40,40,40));
 
             for (int i = 0; i < laserList.Count; i++)
             {
@@ -166,6 +192,17 @@ namespace Coursework
                         laserList.Remove(laserList[i]);
                     }
                 }
+                for (int e = 0; e < enemyList.Count; e++)
+                {
+                    BoundingSphere enemySphere = new BoundingSphere(enemyList[e].Position, mEnemy.Meshes[0].BoundingSphere.Radius * enemyScale);
+
+                    if (laserSphere.Intersects(enemySphere))
+                    {
+                        enemyList.Remove(enemyList[e]);
+                        laserList.Remove(laserList[i]);
+                    }
+                }
+
             }
 
             outsideBounds = false;
@@ -183,8 +220,6 @@ namespace Coursework
 
             gTime = gameTime;
 
-            Console.Write(laserList.Count+" ");
-
             base.Update(gameTime);
         }
 
@@ -198,16 +233,17 @@ namespace Coursework
 
             DrawSkyBox();
 
-            floor.Draw(mainCamera, effect);
-
             Matrix playerTransform =  Matrix.CreateScale(playerScale) * Matrix.CreateFromQuaternion(player.Rotation) * Matrix.CreateTranslation(player.Position);
             DrawModel(mPlayer, playerTransform, mPlayerTransforms);
 
             Matrix terrainTransform = Matrix.CreateScale(terrainScale) * Matrix.CreateTranslation(terrainPosition);
             DrawModel(mTerrain, terrainTransform, mTerrainTransforms);
 
-            Matrix enemyTransform = Matrix.CreateScale(enemyScale) * Matrix.CreateFromQuaternion(Quaternion.Identity) * Matrix.CreateTranslation(enemyPosition);
-            DrawModel(mEnemy, enemyTransform, mEnemyTransforms);
+            for (int i = 0; i < enemyList.Count; i++)
+            {
+                Matrix enemyTransform = Matrix.CreateScale(enemyScale) * Matrix.CreateFromQuaternion(enemyList[i].Rotation) * Matrix.CreateTranslation(enemyList[i].Position);
+                DrawModel(mEnemy, enemyTransform, mEnemyTransforms);
+            }
 
             DrawLaser();
 
@@ -215,18 +251,27 @@ namespace Coursework
             String boost = boostTimer.ToString();
             int booster = (int)player.boostTimer;
 
-            DrawGUI(empty, new Vector2(screenWidth / 1.3f, screenHeight / 20), (int)(screenHeight / 35), (int)(screenWidth / 5), Color.DarkGray, false);
-            DrawGUI(gradient, new Vector2(screenWidth / 1.3f, screenHeight /20), (int)(screenHeight / 35), (int)(screenWidth / 5 * (boostTimer / 100)), Color.DeepSkyBlue, false);
-           
+            DrawGUI(empty, new Vector2(screenWidth / 1.3f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5), Color.DarkGray, false);
+            DrawGUI(gradient, new Vector2(screenWidth / 1.3f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5 * (boostTimer / 100)), Color.DeepSkyBlue, false);
 
-            WriteText(boost, new Vector2(screenWidth / 1.3f, screenHeight / 20), Color.White);
+            DrawGUI(empty, new Vector2(screenWidth / 30f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5), Color.DarkGray, false);
+            DrawGUI(gradient, new Vector2(screenWidth / 30f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5 * (player.health / 100)), Color.DarkRed , false);
+
+            DrawGUI(empty, new Vector2(screenWidth / 2f, screenHeight / 16f), (int)(screenHeight / 10), (int)(screenWidth / 10), Color.DarkGray, true);
+            WriteText(enemyList.Count.ToString(), new Vector2(screenWidth / 2f, screenHeight / 16f), Color.White);
+
+
+            WriteText(boost, new Vector2(screenWidth / 1.3f, screenHeight / 20f), Color.White);
 
             if (outsideBounds)
             {
                 WriteText(warningMsg + Math.Round(countDown).ToString() + " SECONDS!", new Vector2(screenWidth / 2, screenHeight /3), Color.Green);
             }
 
-            DrawGUI(crosshair, new Vector2(screenWidth / 2, screenHeight / 2), (int)(screenWidth * 0.04), (int)(screenHeight * 0.07), Color.Red, true);
+            if (selectedCamera == mainCamera)
+            {
+                DrawGUI(crosshair, new Vector2(screenWidth / 2, screenHeight / 2), (int)(screenWidth * 0.04), (int)(screenHeight * 0.07), Color.Red, true);
+            }
 
             base.Draw(gameTime);
         }
@@ -306,8 +351,8 @@ namespace Coursework
                     {
                         effect.EnableDefaultLighting();
                     }
-                    effect.View = mainCamera.View;
-                    effect.Projection = mainCamera.Projection;
+                    effect.View = selectedCamera.View;
+                    effect.Projection = selectedCamera.Projection;
                 }
             }
             return absoluteTransforms;
@@ -322,8 +367,8 @@ namespace Coursework
                 //This is where the mesh orientation is set
                 foreach (BasicEffect effect in mesh.Effects)
                 {
-                    effect.View = mainCamera.View;
-                    effect.Projection = mainCamera.Projection;
+                    effect.View = selectedCamera.View;
+                    effect.Projection = selectedCamera.Projection;
                     effect.World = absoluteBoneTransforms[mesh.ParentBone.Index] * modelTransform;
                 }
                 //Draw the mesh, will use the effects set above.
@@ -389,6 +434,18 @@ namespace Coursework
             dss = new DepthStencilState();
             dss.DepthBufferEnable = true;
             GraphicsDevice.DepthStencilState = dss;
+        }
+
+        public void SetCamera(bool secSelected)
+        {
+            if (secSelected)
+            {
+                selectedCamera = secCamera;
+            }
+            else
+            {
+                selectedCamera = mainCamera;
+            }
         }
     }
 }

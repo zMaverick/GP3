@@ -19,14 +19,16 @@ namespace Coursework
 
         public Vector3 moveVector;
         public Vector3 rotateVector;
-
+        public int health = 100;
         public float boostTimer = 100.0f;
         private Boolean boostActive = false;
 
         Camera controlCamera;
+        Camera secCamera;
 
         private Vector3 cameraOffset = new Vector3(0f, 1f, -6f);
-
+        private Vector3 secCameraOffset = new Vector3(0f, 1f, 6f);
+        
         public float yaw = 2f;
         public float pitch = 3f;
         public float roll = 5f;
@@ -47,10 +49,11 @@ namespace Coursework
             set { playerRotation = value; }
         }
 
-        public Player(Game game, Camera camera, Vector3 spawnPosition, Quaternion spawnRotation)
+        public Player(Game game, Camera camera, Camera backCamera, Vector3 spawnPosition, Quaternion spawnRotation)
             : base(game)
         {
             controlCamera = camera;
+            secCamera = backCamera;
             MoveTo(spawnPosition, spawnRotation);
         }
 
@@ -58,15 +61,6 @@ namespace Coursework
         {
             Position = newPosition;
             Rotation = newRotation;
-        }
-
-        private void UpdateLookAt()
-        {
-            //Matrix rotationMatrix = Matrix.CreateRotationX(playerPosition.X) * Matrix.CreateRotationY(playerRotation.Y);
-
-            //Vector3 lookAtOffset = Vector3.Transform(Vector3.UnitZ, rotationMatrix);
-            //cameraLookAt = playerPosition + lookAtOffset;
-
         }
 
         private Vector3 PreviewMove(Vector3 amount)
@@ -98,13 +92,21 @@ namespace Coursework
         public void attachCamera()
         {
             Matrix rotation = Matrix.CreateFromQuaternion(cameraRotation);
+            Matrix rot = Matrix.CreateFromQuaternion(playerRotation);
+
             Vector3 offset = Vector3.Transform(cameraOffset, rotation);
+            Vector3 secOffset = Vector3.Transform(secCameraOffset, rotation);
 
             Vector3 lookatOffset = Vector3.Transform(new Vector3(0f, 0.8f, 0f), rotation);
+            Vector3 secLookAtOffset = Vector3.Transform(new Vector3(0f, 0.8f, 0f), rot);
 
             controlCamera.Position = playerPosition + offset;
-            controlCamera.LookAt = playerPosition + lookatOffset;
+            controlCamera.LookAt = playerPosition + secLookAtOffset;
             controlCamera.Up = Vector3.Transform(Vector3.Up, playerRotation);
+
+            secCamera.Position = playerPosition + secOffset;
+            secCamera.LookAt = playerPosition + lookatOffset;
+            secCamera.Up = Vector3.Transform(Vector3.Up, playerRotation);
 
             cameraRotation = Quaternion.Lerp(cameraRotation, playerRotation, 0.1f);
         }

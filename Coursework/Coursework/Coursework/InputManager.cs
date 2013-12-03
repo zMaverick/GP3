@@ -177,6 +177,14 @@ namespace Coursework
                 theGame.ScreenSize(fullScreen);
             }
 
+            if (newPadState.Buttons.LeftShoulder == ButtonState.Pressed)
+            {
+                theGame.SetCamera(true);
+            }
+            if (newPadState.Buttons.LeftShoulder == ButtonState.Released && oldPadState.Buttons.LeftShoulder == ButtonState.Pressed)
+            {
+                theGame.SetCamera(false);
+            }
             /*------------------Roll------------------*/
             if (newPadState.ThumbSticks.Right.X > 0f)
             {
