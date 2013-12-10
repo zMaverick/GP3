@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
-      <SourceFilename>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\CourseworkContent\Models\laser.fbx</SourceFilename>
+      <SourceFilename>C:\Users\gwhite29\Desktop\Build-9 (Current)\Coursework\Coursework\CourseworkContent\Models\laser.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -48,7 +48,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>cylinder</Name>
       <Identity>
-        <SourceFilename>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\CourseworkContent\Models\laser.fbx</SourceFilename>
+        <SourceFilename>C:\Users\gwhite29\Desktop\Build-9 (Current)\Coursework\Coursework\CourseworkContent\Models\laser.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

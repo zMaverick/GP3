@@ -14,26 +14,17 @@ namespace Coursework
 {
     public class Camera : GameComponent
     {
-        public Matrix viewMatrix;           //View Matrix Variable
-
         private Vector3 cameraPosition;     //Cameras position 
-        private Vector3 cameraRotation;     //Cameras rotation
-
         private Vector3 cameraLookAt;       // What the Camera is looking at
         private Vector3 cameraUp;           // The Up Vector
+
+        public Matrix viewMatrix;           //View Matrix Variable
 
         //Public Camera Position member, gets and sets the private member
         public Vector3 Position
         {
             get { return cameraPosition; }
             set { cameraPosition = value; }
-        }
-
-        //Public Camera Rotation member, gets and sets the private member
-        public Vector3 Rotation
-        {
-            get { return cameraRotation; }
-            set { cameraRotation = value; }
         }
 
         public Matrix Projection

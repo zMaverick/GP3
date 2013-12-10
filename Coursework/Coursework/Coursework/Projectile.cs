@@ -15,24 +15,23 @@ namespace Coursework
     public class Projectile
     {
 
-        private Vector3 projPosition;
-        private Quaternion projRotation;
-        public float projSpeed;
-        public bool isActive = true;
-        //Player cPlayer;
-        Vector3 offset;
-        Game1 theGame;
-      
-        //private Boolean fireActive = false;
+        private Vector3 projPosition;                       //Projectile Position
+        private Quaternion projRotation;                    //Projectile Rotation
+        public float projSpeed;                             //Speed the Projectile Moves
+        public bool isActive = true;                        //Is this Projectile is Active
+        private bool isPlayer;                              //Is the Player creating this Projectile
+        private Vector3 offset;                             //Offset used to spawn the Projectile at different Guns of the Ships
+        private Game1 theGame;                              //Instance of the Game1 Class
+        private AudioEmitter emitter = new AudioEmitter();  //Audio Emitter for Sounds
 
-        AudioEmitter emitter = new AudioEmitter();
-        
+        //Public Projectile Position member, gets and sets the private member
         public Vector3 Position
         {
             get { return projPosition; }
             set { projPosition = value; }
         }
 
+        //Public Projectile Rotation member, gets and sets the private member
         public Quaternion Rotation
         {
             get { return projRotation; }
@@ -40,63 +39,87 @@ namespace Coursework
         }
 
 
-        public Projectile(Game1 game1, Vector3 position, Quaternion rotation, float speed, bool pos, bool isPlayer)
+        public Projectile(Game1 game1, Vector3 position, Quaternion rotation, float speed, bool pos, bool player)
         {
-            theGame = game1;
-            Load();
-            if (isPlayer)
+            theGame = game1;    //Set the Game1 Instance to the Passed in varient
+            isPlayer = player;  //Set the isPlayer boolean
+            Load();     //Call the Load Method
+
+            /* This condition is based on the boolean player, which is used to determine whether the firing ship is the Player or an Enemy Ship as the Offset variables differ */
+            if (player)
             {
+                /* This condition is based on the boolean pos which is changed every time a new projectile is created by the host (player or enemy), it alternates the position of the offset vector to simulate firing out of each gun alternately */
                 if (pos)
                 {
+                    //set the offset
                     offset = new Vector3(1.5f, 0f, 1f);
                 }
                 else
                 {
+                    //set the offset
                     offset = new Vector3(-1.5f, 0f, 1f);
                 }
-
+                //Play the fire SoundFX
                 theGame.playerFireFX.Play();
             }
             else
             {
                 if (pos)
                 {
+                    //set the offset
                     offset = new Vector3(0.9f, 0f, 1f);
                 }
                 else
                 {
+                    //set the offset
                     offset = new Vector3(-0.9f, 0f, 1f);
                 }
-
+                //Play the fire SoundFX
                 theGame.enemyFireFX.Play();
             }
-            Matrix playerRotation = Matrix.CreateFromQuaternion(rotation);
-            Vector3 offset1 = Vector3.Transform(offset, rotation);
 
-            projPosition = position + offset1;
-            projRotation = rotation;
-            projSpeed = speed;
+            Vector3 newOffset = Vector3.Transform(offset, rotation);        //Transform the offset vector by the rotation parameter
+
+            projPosition = position + newOffset;        //Set the start position to the position parameter and the new offset transform vector
+            projRotation = rotation;                    //Set the start rotation to the rotation parameter
+            projSpeed = speed;                          //Set the Projectile speed to the input speed parameter
         }
 
         public void Load()
         {
-            theGame.playerFireFX = theGame.playerFire.CreateInstance();
-            theGame.playerFireFX.Apply3D(theGame.listener, emitter);
-
-            theGame.enemyFireFX = theGame.enemyFire.CreateInstance();
-            theGame.enemyFireFX.Apply3D(theGame.listener, emitter);
+            /* This condition is based on the boolean isPlayer, which is used to determine whether the firing ship is the Player or an Enemy Ship as the loaded Sound FX differs */
+            if (isPlayer)
+            {
+                theGame.playerFireFX = theGame.playerFire.CreateInstance(); //Create an instance of the Sound FX (For every projectile created)
+                theGame.playerFireFX.Apply3D(theGame.listener, emitter);    //Apply this instance to the Game Listener (the player), from the emitter
+            }
+            else
+            {
+                theGame.enemyFireFX = theGame.enemyFire.CreateInstance();  //Create an instance of the Sound FX (For every projectile created)
+                theGame.enemyFireFX.Apply3D(theGame.listener, emitter);    //Apply this instance to the Game Listener (the player), from the emitter
+            }
         }
 
         public void UpdateLaser(GameTime gameTime)
         {
+            //If the Projectile is active and not destroyed upon a collision
             if (isActive)
             {
-                emitter.Position = projPosition;
-                Vector3 test = Vector3.Transform(new Vector3(0, 0, 1), projRotation);
-                projPosition += test * projSpeed;
+                emitter.Position = projPosition;                //Update the emitter position to the projectile position
+                Vector3 direction = Vector3.Transform(Vector3.UnitZ, projRotation);   //Transform  the forward direction (Z-Axis) by the rotation
+                projPosition += direction * projSpeed;          //apply the speed of the projectile to the direction and add to the current projectile position
 
-                theGame.enemyFireFX.Apply3D(theGame.listener, emitter);
-                theGame.playerFireFX.Apply3D(theGame.listener, emitter);
+                /* This condition is based on the boolean isPlayer, which is used to determine whether the firing ship is the Player or an Enemy Ship as the loaded Sound FX differs */
+                if (isPlayer)
+                {
+                    //Apply this instance to the Game Listener (the player), from the emitter
+                    theGame.playerFireFX.Apply3D(theGame.listener, emitter);
+                }
+                else
+                {
+                    //Apply this instance to the Game Listener (the player), from the emitter
+                    theGame.enemyFireFX.Apply3D(theGame.listener, emitter);
+                }
             }
         }
     }

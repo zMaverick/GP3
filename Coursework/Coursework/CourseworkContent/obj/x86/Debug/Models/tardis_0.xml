@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>Scene_Root</Name>
     <Identity>
-      <SourceFilename>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\CourseworkContent\Models\tardis.x</SourceFilename>
+      <SourceFilename>C:\Users\gwhite29\Desktop\Build-9 (Current)\Coursework\Coursework\CourseworkContent\Models\tardis.x</SourceFilename>
       <SourceTool>XImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -49,7 +49,7 @@
   <Resources>
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Identity>
-        <SourceFilename>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\CourseworkContent\Models\tardis.x</SourceFilename>
+        <SourceFilename>C:\Users\gwhite29\Desktop\Build-9 (Current)\Coursework\Coursework\CourseworkContent\Models\tardis.x</SourceFilename>
         <SourceTool>XImporter</SourceTool>
       </Identity>
       <OpaqueData>

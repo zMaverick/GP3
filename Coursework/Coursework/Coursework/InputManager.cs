@@ -24,7 +24,7 @@ namespace Coursework
         private GamePadState newPadState;       //The current frame pad state
         private GamePadState oldPadState;       //The previous frame pad state
         
-        private Vector3 mouseRotBuffer;         //
+        private Vector3 mouseRotBuffer;         //Rotation Buffer
         private MouseState curMouseState;       //The current frame mouse state
         private MouseState preMouseState;       //The current frame mouse state
 
@@ -93,7 +93,7 @@ namespace Coursework
             }
             if (newKeyState.IsKeyDown(Keys.W))
             {
-                //Slow slightly
+                //Speed Up slightly
                 controlPlayer.playerSpeed += 3f;
                 //Adjust the speedSound variable (engine pitch)
                 controlPlayer.speedSound = 1f;
@@ -127,106 +127,133 @@ namespace Coursework
 
         public void MouseInput()
         {
+            //Set the current MouseState
             curMouseState = Mouse.GetState();
 
-            float deltaX;
-            float deltaY;
+            float deltaX;   //Mouse Position X
+            float deltaY;   //Mouse Position Y
 
             if (curMouseState != preMouseState)
             {
+                //Cache the Mouse Location (X and Y)
                 deltaX = curMouseState.X - (Game.GraphicsDevice.Viewport.Width / 2);
                 deltaY = curMouseState.Y - (Game.GraphicsDevice.Viewport.Height / 2);
 
+                //Calculate the Rotation buffer based on how much the mouse has moved per frame
                 mouseRotBuffer.X -= 0.1f * deltaX * delta;
                 mouseRotBuffer.Y -= 0.1f * deltaY * delta;
 
+                //Set the Player rotation to the created Rotation Buffer 
                 controlPlayer.Rotation = Quaternion.CreateFromYawPitchRoll(mouseRotBuffer.X, -mouseRotBuffer.Y, controlPlayer.Rotation.Z);
 
-                deltaX = 0;
+                //Reset Delta X and Y to zero
+                deltaX = 0; 
                 deltaY = 0;
             }
+            //Reset the Mouse to the Centre of the Screen
             Mouse.SetPosition(Game.GraphicsDevice.Viewport.Width / 2, Game.GraphicsDevice.Viewport.Height / 2);
 
             if (curMouseState.LeftButton == ButtonState.Pressed)
             {
+                //Call the Projectile Fire Method
                 theGame.Fire();
             }
 
             if (curMouseState.RightButton == ButtonState.Pressed)
             {
+                //Call the Player Boost Method, the Player is boosting
                 controlPlayer.Boost(true);
             }
 
             if (curMouseState.RightButton == ButtonState.Released && preMouseState.RightButton == ButtonState.Pressed)
             {
+                //Call the Player Boost Method, the Player has stopped boosting
                 controlPlayer.Boost(false);
             }
 
             if (curMouseState.MiddleButton == ButtonState.Pressed)
             {
+                //Set the Camera to true (Secondary Camera)
                 theGame.SetCamera(true);
             }
             if (curMouseState.MiddleButton == ButtonState.Released && preMouseState.MiddleButton == ButtonState.Pressed)
             {
+                //Set the Camera to false (Main Camera)
                 theGame.SetCamera(false);
             }
 
+            // At the end of each frame set the current MouseState to the previous MouseState
             preMouseState = curMouseState;
         }
 
         public void ControllerInput()
         {
+            //Reset the Yaw, Pitch and Roll Variables once a frame
             controlPlayer.yaw = 2f;
             controlPlayer.pitch = 2f;
             controlPlayer.roll = 3f;
-
+            
             if (newPadState.ThumbSticks.Left.Y > 0f)
             {
+                //Speed Up Slightly
                 controlPlayer.playerSpeed += (newPadState.ThumbSticks.Left.Y * 3f);
             }
 
             if (newPadState.ThumbSticks.Left.Y < 0f)
             {
+                //Slow Slightly
                 controlPlayer.playerSpeed += (newPadState.ThumbSticks.Left.Y * 3f);
+                
             }
-
             if (newPadState.Triggers.Right > 0f)
             {
+                //Call the Projectile Fire Method
                 theGame.Fire();
             }
 
             if (newPadState.Triggers.Left > 0f)
             {
+                //Call the Player Boost Method, the Player is boosting
                 controlPlayer.Boost(true);
             }
             if (newPadState.Triggers.Left == 0f && oldPadState.Triggers.Left > 0f)
             {
+                //Call the Player Boost Method, the Player has stopped boosting
                 controlPlayer.Boost(false);
             }
 
             if (newPadState.Buttons.Start == ButtonState.Pressed && newPadState != oldPadState)
             {
+                //Invert the FullScreen boolean (on/off)
                 fullScreen = !fullScreen;
+                //Call the ScreenSize Method with this boolean
                 theGame.ScreenSize(fullScreen);
             }
 
             if (newPadState.Buttons.LeftShoulder == ButtonState.Pressed)
             {
+                //Set the Camera to true (Secondary Camera)
                 theGame.SetCamera(true);
             }
             if (newPadState.Buttons.LeftShoulder == ButtonState.Released && oldPadState.Buttons.LeftShoulder == ButtonState.Pressed)
             {
+                //Set the Camera to false (Main Camera)
                 theGame.SetCamera(false);
             }
+
             /*------------------Roll------------------*/
             if (newPadState.ThumbSticks.Right.X > 0f)
             {
+                //Set the Speed of the Roll
                 controlPlayer.roll *= newPadState.ThumbSticks.Right.X;
+                //Rotate Around the Z Axis (Roll)
                 controlPlayer.rotateVector.Z = 1;
             }
             if (newPadState.ThumbSticks.Right.X < 0f)
             {
+                //Set the Speed of the Roll
                 controlPlayer.roll *= -newPadState.ThumbSticks.Right.X;
+                //Rotate Around the Z Axis (Roll)
                 controlPlayer.rotateVector.Z = -1;
             }
             /*------------------Roll------------------*/
@@ -234,12 +261,16 @@ namespace Coursework
             /*------------------Pitch-----------------*/
             if (newPadState.ThumbSticks.Left.X < 0f)
             {
+                //Set the Speed of the Roll
                 controlPlayer.pitch *= -newPadState.ThumbSticks.Left.X;
+                //Rotate Around the X Axis (Roll)
                 controlPlayer.rotateVector.X = 1;
             }
             if (newPadState.ThumbSticks.Left.X > 0f)
             {
+                //Set the Speed of the Roll
                 controlPlayer.pitch *= newPadState.ThumbSticks.Left.X;
+                //Rotate Around the X Axis (Roll)
                 controlPlayer.rotateVector.X = -1;
             }
             /*------------------Pitch-------------------*/
@@ -247,12 +278,16 @@ namespace Coursework
             /*-------------------Yaw------------------*/
             if (newPadState.ThumbSticks.Right.Y > 0f)
             {
+                //Set the Speed of the Roll
                 controlPlayer.yaw *= newPadState.ThumbSticks.Right.Y;
+                //Rotate Around the Y Axis (Roll)
                 controlPlayer.rotateVector.Y = 1;
             }
             if (newPadState.ThumbSticks.Right.Y < 0f)
             {
+                //Set the Speed of the Roll
                 controlPlayer.yaw *= -newPadState.ThumbSticks.Right.Y;
+                //Rotate Around the Y Axis (Roll)
                 controlPlayer.rotateVector.Y = -1;
             }
             /*-------------------Yaw------------------*/
@@ -263,6 +298,7 @@ namespace Coursework
                 theGame.Exit();
             }
 
+            // At the end of each frame set the current PadState to the previous PadState
             oldPadState = newPadState;
         }
         
