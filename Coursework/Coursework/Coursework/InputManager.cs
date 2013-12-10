@@ -14,90 +14,114 @@ namespace Coursework
 {
     public class InputManager : Microsoft.Xna.Framework.GameComponent
     {
-        private Camera controlCamera;
-        private Player controlPlayer;
-        private Game1 theGame;
+        private Camera controlCamera;           //Instance of the Player Camera
+        private Player controlPlayer;           //Instance of the Player
+        private Game1 theGame;                  //Instance of the Game
 
-        private bool fullScreen = false;
+        private bool fullScreen = false;        //Boolean for switching to Fullscreen
+        private bool soundOn = false;           //Boolean for switching sound on and off
 
-        private GamePadState oldPadState;
-        private GamePadState newPadState;
+        private GamePadState newPadState;       //The current frame pad state
+        private GamePadState oldPadState;       //The previous frame pad state
+        
+        private Vector3 mouseRotBuffer;         //
+        private MouseState curMouseState;       //The current frame mouse state
+        private MouseState preMouseState;       //The current frame mouse state
 
-        private Vector3 mouseRotBuffer;
-        private MouseState curMouseState;
-        private MouseState preMouseState;
+        private KeyboardState newKeyState;      //The current frame keyboard state
+        private KeyboardState oldKeyState;      //The current frame keyboard state
 
-        private KeyboardState newKeyState;
-        private KeyboardState oldKeyState;
-
-        private float delta;
+        private float delta;                    //Hold the time since the last update
 
         public InputManager(Game game, Game1 game1, Camera camera, Player player)
             : base(game)
         {
+            //Set the Instances upon Initialize
             controlCamera = camera;
             controlPlayer = player;
-
-
             theGame = game1;
         }
+
         public override void Update(GameTime gameTime)
         {
+            //Set the delta variable
             delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+            //Set the current pad state
             newPadState = GamePad.GetState(PlayerIndex.One);
+
+            //Adjust the speedSound variable (engine pitch) based on the left thumbstick Y
+            controlPlayer.speedSound = newPadState.ThumbSticks.Left.Y;
+
+            //Reset the Rotate Vector
             controlPlayer.rotateVector = Vector3.Zero;
 
+            //Call the Keyboard Input Handler
             KeyboardInput();
 
+            //Call the Mouse Input Handler
             MouseInput();
 
+            //If there is a Controller Conected: Call the Controller Input Handler
             if (newPadState.IsConnected)
                 ControllerInput();
-           
+
             base.Update(gameTime);
         }
 
         public void KeyboardInput()
         {
+            //Set the current Keyboard state
             newKeyState = Keyboard.GetState();
-                        
-            //rotateVector = Vector3.Zero;
-
+ 
             if (newKeyState.IsKeyDown(Keys.A))
             {
+                //Roll the player Left
                 controlPlayer.rotateVector.Z = -1;
             }
             if (newKeyState.IsKeyDown(Keys.D))
             {
+                //Roll the player Right
                 controlPlayer.rotateVector.Z = 1;
             }
             if (newKeyState.IsKeyDown(Keys.S))
             {
-                controlPlayer.moveVector.Z = -1;
-                controlPlayer.moveVector.Y = -1;
+                //Slow slightly
+                controlPlayer.playerSpeed -= 3f;
+                //Adjust the speedSound variable (engine pitch)
+                controlPlayer.speedSound = -1f;
             }
             if (newKeyState.IsKeyDown(Keys.W))
             {
-                controlPlayer.moveVector.Z = 1;
-                controlPlayer.moveVector.Y = 1;
+                //Slow slightly
+                controlPlayer.playerSpeed += 3f;
+                //Adjust the speedSound variable (engine pitch)
+                controlPlayer.speedSound = 1f;
             }
 
-            if (newKeyState.IsKeyDown(Keys.Space))
+            if (newKeyState.IsKeyDown(Keys.M) && oldKeyState.IsKeyUp(Keys.M))
             {
-                 controlPlayer.Boost(true);
+                //Invert the sound boolean (on/off)
+                soundOn = !soundOn;
+                //Call the Mute Method with this boolean
+                theGame.Mute(soundOn);
             }
-            if (newKeyState.IsKeyUp(Keys.Space) && oldKeyState.IsKeyDown(Keys.Space))
+
+            if (newKeyState.IsKeyDown(Keys.F11) && oldKeyState.IsKeyUp(Keys.F11))
             {
-                controlPlayer.Boost(false);
+                //Invert the FullScreen boolean (on/off)
+                fullScreen = !fullScreen;
+                //Call the ScreenSize Method with this boolean
+                theGame.ScreenSize(fullScreen);
             }
 
-
-            if (newKeyState.IsKeyDown(Keys.LeftControl))
+            if (newKeyState.IsKeyDown(Keys.Escape))
             {
-                controlPlayer.moveVector.Y = -1;
+                //Close the Game
+                theGame.Exit();
             }
 
+            // At the end of each frame set the current KeyState to the previous keystate
             oldKeyState = newKeyState;
         }
 
@@ -116,22 +140,36 @@ namespace Coursework
                 mouseRotBuffer.X -= 0.1f * deltaX * delta;
                 mouseRotBuffer.Y -= 0.1f * deltaY * delta;
 
-                /*if (mouseRotBuffer.Y < MathHelper.ToRadians(-75.0f))
-                    mouseRotBuffer.Y = mouseRotBuffer.Y - (mouseRotBuffer.Y - MathHelper.ToRadians(-75.0f));
-                if (mouseRotBuffer.Y > MathHelper.ToRadians(75.0f))
-                    mouseRotBuffer.Y = mouseRotBuffer.Y - (mouseRotBuffer.Y - MathHelper.ToRadians(75.0f));*/
-
-                /////////////////////////CREATE FROM AXIS ANGLE\\\\\\\\\\\\\\\\\\\\\\\\\
-
                 controlPlayer.Rotation = Quaternion.CreateFromYawPitchRoll(mouseRotBuffer.X, -mouseRotBuffer.Y, controlPlayer.Rotation.Z);
-                //Quaternion tester1 = Quaternion.CreateFromAxisAngle(Vector3.UnitY, mouseRotBuffer.X);
-                //Quaternion tester2 = Quaternion.CreateFromAxisAngle(Vector3.UnitX, mouseRotBuffer.Y);
 
                 deltaX = 0;
                 deltaY = 0;
-
             }
             Mouse.SetPosition(Game.GraphicsDevice.Viewport.Width / 2, Game.GraphicsDevice.Viewport.Height / 2);
+
+            if (curMouseState.LeftButton == ButtonState.Pressed)
+            {
+                theGame.Fire();
+            }
+
+            if (curMouseState.RightButton == ButtonState.Pressed)
+            {
+                controlPlayer.Boost(true);
+            }
+
+            if (curMouseState.RightButton == ButtonState.Released && preMouseState.RightButton == ButtonState.Pressed)
+            {
+                controlPlayer.Boost(false);
+            }
+
+            if (curMouseState.MiddleButton == ButtonState.Pressed)
+            {
+                theGame.SetCamera(true);
+            }
+            if (curMouseState.MiddleButton == ButtonState.Released && preMouseState.MiddleButton == ButtonState.Pressed)
+            {
+                theGame.SetCamera(false);
+            }
 
             preMouseState = curMouseState;
         }
@@ -156,11 +194,6 @@ namespace Coursework
             {
                 theGame.Fire();
             }
-
-            //if (newPadState.Triggers.Right == 0f && oldPadState.Triggers.Right > 0f)
-            //{
-            //    theGame.Fire(false);
-            //}
 
             if (newPadState.Triggers.Left > 0f)
             {
@@ -224,11 +257,11 @@ namespace Coursework
             }
             /*-------------------Yaw------------------*/
 
-            //Exit the Game
             if (newPadState.Buttons.Back == ButtonState.Pressed)
+            {
+                //Exit the Game
                 theGame.Exit();
-
-
+            }
 
             oldPadState = newPadState;
         }

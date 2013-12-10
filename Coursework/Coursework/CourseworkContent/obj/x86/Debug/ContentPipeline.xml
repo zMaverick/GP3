@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\GUI\crosshair.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\GUI\crosshair.xnb</Output>
+      <Time>2013-12-03T10:26:18+00:00</Time>
     </Item>
     <Item>
       <Source>Models\LaserMap.tga</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Models\Tardis.tga</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\tardis.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\tardis.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>GUI\empty.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\GUI\empty.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\GUI\empty.xnb</Output>
+      <Time>2013-12-03T10:26:18+00:00</Time>
     </Item>
     <Item>
       <Source>GUI\grad.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\GUI\grad.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\GUI\grad.xnb</Output>
+      <Time>2013-12-03T10:26:18+00:00</Time>
     </Item>
     <Item>
       <Source>Models\dalek.x</Source>
@@ -52,11 +52,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\dalek.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\dalek.xnb</Output>
+      <Time>2013-12-03T10:26:18+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\dalek_0.xml</Key>
-        <Value>2013-12-03T19:54:51.225144+00:00</Value>
+        <Value>2013-12-03T20:20:27.6800241+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -65,13 +65,13 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\tardismodel.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\tardismodel.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\tardis_0.xml</Key>
-        <Value>2013-12-03T19:54:51.3821529+00:00</Value>
+        <Value>2013-12-03T20:20:27.8190321+00:00</Value>
       </Dependency>
-      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Request>
     </Item>
     <Item>
       <Source>Skybox\skybox.x</Source>
@@ -79,17 +79,17 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\skybox.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\skybox.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Skybox\skybox_0.xml</Key>
-        <Value>2013-12-03T19:54:51.6191665+00:00</Value>
+        <Value>2013-12-03T20:20:28.0730466+00:00</Value>
       </Dependency>
-      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Request>
-      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Request>
-      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Request>
-      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Request>
-      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\laser.fbx</Source>
@@ -97,13 +97,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\laser.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\laser.xnb</Output>
+      <Time>2013-12-03T10:26:18+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\laser_0.xml</Key>
-        <Value>2013-12-03T19:54:53.8962967+00:00</Value>
+        <Value>2013-12-03T20:20:30.1241639+00:00</Value>
       </Dependency>
-      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\ship.FBX</Source>
@@ -111,13 +111,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\ship.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\ship.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\ship_0.xml</Key>
-        <Value>2013-12-03T19:54:55.1303673+00:00</Value>
+        <Value>2013-12-03T20:20:31.3592346+00:00</Value>
       </Dependency>
-      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\terrain.FBX</Source>
@@ -125,13 +125,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\terrain.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\terrain.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\terrain_0.xml</Key>
-        <Value>2013-12-03T19:54:55.9254128+00:00</Value>
+        <Value>2013-12-03T20:20:32.1112776+00:00</Value>
       </Dependency>
-      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\17  desert\sand tex_0.xnb</Request>
+      <Request>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\17  desert\sand tex_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\laser1.fbx</Source>
@@ -139,11 +139,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\laser1.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\laser1.xnb</Output>
+      <Time>2013-12-03T10:26:18+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\laser1_0.xml</Key>
-        <Value>2013-12-03T19:54:56.1314246+00:00</Value>
+        <Value>2013-12-03T20:20:32.3192895+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -152,11 +152,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\enemy.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\enemy.xnb</Output>
+      <Time>2013-12-03T10:26:18+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\enemy_0.xml</Key>
-        <Value>2013-12-03T19:54:56.2914337+00:00</Value>
+        <Value>2013-12-03T20:20:32.4582974+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -165,11 +165,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\EnemyLaser.xnb</Output>
-      <Time>2013-12-02T18:19:50+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\EnemyLaser.xnb</Output>
+      <Time>2013-12-03T10:26:18+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\EnemyLaser_0.xml</Key>
-        <Value>2013-12-03T19:54:56.3364363+00:00</Value>
+        <Value>2013-12-03T20:20:32.4972997+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -178,22 +178,49 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Fonts\GameFont.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Fonts\GameFont.xnb</Output>
+      <Time>2013-12-04T12:24:14.3912077+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\enemy-fire.wav</Source>
+      <Name>Sounds\enemy-fire</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Sounds\enemy-fire.xnb</Output>
+      <Time>2013-12-03T10:38:48+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\player-fire.wav</Source>
+      <Name>Sounds\player-fire</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Sounds\player-fire.xnb</Output>
+      <Time>2013-12-03T14:17:22+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\enemy-move.wav</Source>
+      <Name>Sounds\enemy-move</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Sounds\enemy-move.xnb</Output>
+      <Time>2013-12-03T14:50:56+00:00</Time>
     </Item>
     <Item>
       <Source>Models\dalek.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\dalek_0.xml</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Time>2013-12-03T10:26:18+00:00</Time>
     </Item>
     <Item>
       <Source>Models\tardis.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\tardis_0.xml</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Models\Tardis.tga</Source>
@@ -208,15 +235,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\Tardis_0.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\skybox.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Skybox\skybox_0.xml</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_top.jpg</Source>
@@ -231,8 +258,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_top_0.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_right.jpg</Source>
@@ -247,8 +274,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_right_0.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_left.jpg</Source>
@@ -263,8 +290,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_left_0.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_front.jpg</Source>
@@ -279,8 +306,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_front_0.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Skybox\clear_back.jpg</Source>
@@ -295,15 +322,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Skybox\clear_back_0.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Models\laser.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\laser_0.xml</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Time>2013-12-03T10:26:18+00:00</Time>
     </Item>
     <Item>
       <Source>Models\LaserMap.tga</Source>
@@ -318,15 +345,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\LaserMap_0.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Models\ship.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\ship_0.xml</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Models\ARC-170\ARC170_TXT_VERSION_4_D.tga</Source>
@@ -341,15 +368,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Models\terrain.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\terrain_0.xml</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Models\17  desert\sand tex.jpg</Source>
@@ -364,29 +391,84 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\17  desert\sand tex_0.xnb</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Models\17  desert\sand tex_0.xnb</Output>
+      <Time>2013-12-03T10:26:20+00:00</Time>
     </Item>
     <Item>
       <Source>Models\laser1.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\laser1_0.xml</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Time>2013-12-03T10:26:18+00:00</Time>
     </Item>
     <Item>
       <Source>Models\enemy.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\enemy_0.xml</Output>
-      <Time>2013-12-02T16:43:42+00:00</Time>
+      <Time>2013-12-03T10:26:18+00:00</Time>
     </Item>
     <Item>
       <Source>Models\EnemyLaser.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\EnemyLaser_0.xml</Output>
-      <Time>2013-12-02T18:19:50+00:00</Time>
+      <Time>2013-12-03T10:26:18+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\player-move.wav</Source>
+      <Name>Sounds\player-move</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Sounds\player-move.xnb</Output>
+      <Time>2013-12-03T20:34:20.9016817+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\player-move2.wav</Source>
+      <Name>Sounds\player-move2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Sounds\player-move2.xnb</Output>
+      <Time>2013-12-03T21:13:46.0159585+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\player-move3.wav</Source>
+      <Name>Sounds\player-move3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Sounds\player-move3.xnb</Output>
+      <Time>2013-12-03T21:37:35.9037434+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\music.mp3</Source>
+      <Name>Sounds\music</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Sounds\music.xnb</Output>
+      <Extra>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Sounds\music.wma</Extra>
+      <Time>2013-12-04T14:28:36.3750087+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\enemy-explode.wav</Source>
+      <Name>Sounds\enemy-explode</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Sounds\enemy-explode.xnb</Output>
+      <Time>2013-12-04T14:42:00.3919959+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\player-explode.wav</Source>
+      <Name>Sounds\player-explode</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\Sounds\player-explode.xnb</Output>
+      <Time>2013-12-04T15:02:35.8366592+00:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -394,10 +476,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\CourseworkContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\CourseworkContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\Coursework\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\CourseworkContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\CourseworkContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\Coursework\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

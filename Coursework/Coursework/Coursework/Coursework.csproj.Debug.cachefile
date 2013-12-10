@@ -13,6 +13,9 @@ Content\Models\laser1.xnb
 Content\Models\enemy.xnb
 Content\Models\EnemyLaser.xnb
 Content\Fonts\GameFont.xnb
+Content\Sounds\enemy-fire.xnb
+Content\Sounds\player-fire.xnb
+Content\Sounds\enemy-move.xnb
 Content\Models\Tardis_0.xnb
 Content\Skybox\clear_top_0.xnb
 Content\Skybox\clear_right_0.xnb
@@ -22,3 +25,19 @@ Content\Skybox\clear_back_0.xnb
 Content\Models\LaserMap_0.xnb
 Content\Models\ARC-170\ARC170_TXT_VERSION_4_D_0.xnb
 Content\Models\17  desert\sand tex_0.xnb
+Content\Sounds\player-move.xnb
+Content\Sounds\player-move2.xnb
+Content\Sounds\player-move3.xnb
+Content\Sounds\music.xnb
+Content\Sounds\enemy-explode.xnb
+Content\Sounds\player-explode.xnb
+Content\Sounds\music.wma
+Content\Sounds\enemy-fire.wav
+Content\Sounds\player-fire.wav
+Content\Sounds\enemy-move.wav
+Content\Sounds\player-move.wav
+Content\Sounds\player-move2.wav
+Content\Sounds\player-move3.wav
+Content\Sounds\music.mp3
+Content\Sounds\enemy-explode.wav
+Content\Sounds\player-explode.wav

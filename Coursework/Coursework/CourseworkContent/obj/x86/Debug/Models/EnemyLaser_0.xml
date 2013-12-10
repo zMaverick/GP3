@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>Cylinder</Name>
     <Identity>
-      <SourceFilename>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\CourseworkContent\Models\EnemyLaser.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\CourseworkContent\Models\EnemyLaser.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <OpaqueData>
@@ -31,7 +31,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Mat</Name>
       <Identity>
-        <SourceFilename>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-7\Coursework\Coursework\CourseworkContent\Models\EnemyLaser.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Gavin\Dropbox\University\Year 5 (Honours)\Games Programming 3\Coursework\Build-8 (Current)\Coursework\Coursework\CourseworkContent\Models\EnemyLaser.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

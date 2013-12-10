@@ -23,14 +23,18 @@ namespace Coursework
         Game1 theGame;
 
         private Vector3 moveVector;
-        private Vector3 rotateVector;
+        //private Vector3 rotateVector;
 
         private float enemySpeed = 12f;
         private Player targetPlayer;
 
         public bool isActive = true;
+        private bool firePos = true;
 
         double lastLaserTime = 0;
+
+
+        public AudioEmitter emitter = new AudioEmitter();
 
         public Vector3 Position
         {
@@ -51,17 +55,27 @@ namespace Coursework
             enemyRotation = spawnRotation;
             targetPlayer = player;
             theGame = game1;
+            LoadSounds();
         }
-
+        public void LoadSounds()
+        {
+            theGame.enemySound = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\enemy-move.wav"));
+            theGame.enemySoundFX = theGame.enemySound.CreateInstance();
+            theGame.enemySoundFX.Apply3D(theGame.listener, emitter);
+        }
         public override void Update(GameTime gameTime)
         {
             if (isActive)
             {
+                emitter.Position = enemyPosition;
                 float delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
                 playerDistance = Vector3.Distance(enemyPosition, targetPlayer.Position);
 
                 if (playerDistance <= attackDistance)
                 {
+                    theGame.enemySoundFX.Play();
+
+                    theGame.enemySoundFX.Apply3D(theGame.listener, emitter);
                     Attack(gameTime);
                     moveVector.Z = 1;
                     attackDistance = 200f;
@@ -77,9 +91,8 @@ namespace Coursework
                     moveVector *= delta * enemySpeed;
                     Move(moveVector);
                 }
-
-                base.Update(gameTime);
             }
+            base.Update(gameTime);
         }
 
         public void Attack(GameTime gTime)
@@ -90,7 +103,8 @@ namespace Coursework
 
             if (currentTime - lastLaserTime > 1000)
             {
-                theGame.EnemyFire(enemyPosition, enemyRotation);
+                firePos = !firePos;
+                theGame.EnemyFire(enemyPosition, enemyRotation, firePos);
                 lastLaserTime = currentTime;
             }
         }
@@ -139,6 +153,5 @@ namespace Coursework
         {
             MoveTo(Position, PreviewRotate(scale));
         }
-
     }
 }

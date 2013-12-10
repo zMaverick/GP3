@@ -22,7 +22,7 @@ namespace Coursework
         public int health = 100;
         public float boostTimer = 100.0f;
         private Boolean boostActive = false;
-
+        Game1 theGame;
         Camera controlCamera;
         Camera secCamera;
 
@@ -36,6 +36,8 @@ namespace Coursework
         public float playerSpeed = 7f;
         Quaternion cameraRotation = Quaternion.Identity;
 
+        AudioEmitter emitter = new AudioEmitter();
+        public float speedSound = 0f;
 
         public Vector3 Position
         {
@@ -49,9 +51,10 @@ namespace Coursework
             set { playerRotation = value; }
         }
 
-        public Player(Game game, Camera camera, Camera backCamera, Vector3 spawnPosition, Quaternion spawnRotation)
+        public Player(Game game, Game1 game1, Camera camera, Camera backCamera, Vector3 spawnPosition, Quaternion spawnRotation)
             : base(game)
         {
+            theGame = game1;
             controlCamera = camera;
             secCamera = backCamera;
             MoveTo(spawnPosition, spawnRotation);
@@ -114,6 +117,7 @@ namespace Coursework
         public override void Update(GameTime gameTime)
         {
             float delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            emitter.Position = playerPosition;
 
             Vector3 yawPitchRoll = new Vector3(pitch, yaw, roll);
             moveVector = Vector3.Zero;
@@ -136,19 +140,36 @@ namespace Coursework
             {
                 playerSpeed = 50f;
                 boostTimer -= 0.5f;
+                cameraOffset.Z -= 0.2f;
+                theGame.playerSoundFX.Stop();
+                theGame.playerBoostFX.Play();
             }
             else
-            { 
+            {
+                cameraOffset.Z += 0.2f;
+                theGame.playerBoostFX.Stop();
+                theGame.playerSoundFX.Play();
+                theGame.playerSoundFX.Pitch = speedSound / 8;
                 playerSpeed = 10f; 
             }
+
             if (!boostActive)
             {
                 boostTimer += 0.5f;
             }
-           boostTimer = MathHelper.Clamp(boostTimer, -1.0f, 100.0f);
+            boostTimer = MathHelper.Clamp(boostTimer, -1.0f, 100.0f);
 
-            attachCamera();
+            cameraOffset.Z = MathHelper.Clamp(cameraOffset.Z, -8f, -6f);
+            theGame.playerBoostFX.Apply3D(theGame.listener, emitter);
+            theGame.playerSoundFX.Apply3D(theGame.listener, emitter);
 
+           attachCamera();
+           theGame.playerExplodeFX.Apply3D(theGame.listener, emitter);
+
+           if (health <= 0)
+           {
+               Destroy();
+           }
         }
 
         public void Damage()
@@ -160,5 +181,20 @@ namespace Coursework
         {
             boostActive = active;
         }
+
+        public void Destroy()
+        {
+            theGame.playerExplodeFX.Play();
+
+            playerPosition = new Vector3(0f, 200f, 0f);
+            playerRotation = Quaternion.Identity;
+
+            controlCamera.Position = playerPosition + cameraOffset;
+            secCamera.Position = playerPosition + secCameraOffset;
+            
+            health = 100;
+            boostTimer = 100;
+        }
+
     }
 }

@@ -19,11 +19,14 @@ namespace Coursework
         private Quaternion projRotation;
         public float projSpeed;
         public bool isActive = true;
-        Player cPlayer;
+        //Player cPlayer;
         Vector3 offset;
+        Game1 theGame;
+      
+        //private Boolean fireActive = false;
 
-        private Boolean fireActive = false;
-
+        AudioEmitter emitter = new AudioEmitter();
+        
         public Vector3 Position
         {
             get { return projPosition; }
@@ -37,8 +40,10 @@ namespace Coursework
         }
 
 
-        public Projectile(Vector3 position, Quaternion rotation, float speed, bool pos, bool isPlayer)
+        public Projectile(Game1 game1, Vector3 position, Quaternion rotation, float speed, bool pos, bool isPlayer)
         {
+            theGame = game1;
+            Load();
             if (isPlayer)
             {
                 if (pos)
@@ -49,6 +54,8 @@ namespace Coursework
                 {
                     offset = new Vector3(-1.5f, 0f, 1f);
                 }
+
+                theGame.playerFireFX.Play();
             }
             else
             {
@@ -60,6 +67,8 @@ namespace Coursework
                 {
                     offset = new Vector3(-0.9f, 0f, 1f);
                 }
+
+                theGame.enemyFireFX.Play();
             }
             Matrix playerRotation = Matrix.CreateFromQuaternion(rotation);
             Vector3 offset1 = Vector3.Transform(offset, rotation);
@@ -69,12 +78,25 @@ namespace Coursework
             projSpeed = speed;
         }
 
+        public void Load()
+        {
+            theGame.playerFireFX = theGame.playerFire.CreateInstance();
+            theGame.playerFireFX.Apply3D(theGame.listener, emitter);
+
+            theGame.enemyFireFX = theGame.enemyFire.CreateInstance();
+            theGame.enemyFireFX.Apply3D(theGame.listener, emitter);
+        }
+
         public void UpdateLaser(GameTime gameTime)
         {
             if (isActive)
             {
+                emitter.Position = projPosition;
                 Vector3 test = Vector3.Transform(new Vector3(0, 0, 1), projRotation);
                 projPosition += test * projSpeed;
+
+                theGame.enemyFireFX.Apply3D(theGame.listener, emitter);
+                theGame.playerFireFX.Apply3D(theGame.listener, emitter);
             }
         }
     }

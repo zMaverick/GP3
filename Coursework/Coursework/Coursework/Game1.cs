@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -48,7 +49,6 @@ namespace Coursework
 
         private Model mEnemyLaser;
         private Matrix[] mEnemyLaserTransforms;
-        bool enFirePos = true;
 
         private Model mTerrain;
         private Matrix[] mTerrainTransforms;
@@ -95,6 +95,35 @@ namespace Coursework
         float screenWidth;
         float screenHeight;
 
+        //SoundEffect enemyFire;
+        //public SoundEffectInstance enemyFireFX;
+
+        public SoundEffect enemySound;
+        public SoundEffectInstance enemySoundFX;
+
+        public SoundEffect playerSound;
+        public SoundEffectInstance playerSoundFX;
+
+        public SoundEffect boostSound;
+        public SoundEffectInstance playerBoostFX;
+
+        public SoundEffect enemyFire;
+        public SoundEffectInstance enemyFireFX;
+
+        public SoundEffect playerFire;
+        public SoundEffectInstance playerFireFX;
+
+        public SoundEffect enemyExplode;
+        public SoundEffectInstance enemyExplodeFX;
+
+        public SoundEffect playerExplode;
+        public SoundEffectInstance playerExplodeFX;
+
+        Song backgroundMusic;
+
+        public AudioEmitter emitter = new AudioEmitter();
+        public AudioListener listener = new AudioListener();
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -109,14 +138,13 @@ namespace Coursework
         {
             Window.Title = "Gavin Whitehall - Coursework";
 
-
-            mainCamera = new Camera(this, new Vector3(10f, 1f, 5f), Vector3.Zero, 5f);
+            mainCamera = new Camera(this, new Vector3(10f, 1f, 5f), Vector3.Zero);
             Components.Add(mainCamera);
 
-            secCamera = new Camera(this, new Vector3(10f, 1f, 5f), Vector3.Zero, 5f);
+            secCamera = new Camera(this, new Vector3(10f, 1f, 5f), Vector3.Zero);
             Components.Add(secCamera);
 
-            player = new Player(this, mainCamera, secCamera, playerPosition, Quaternion.Identity);
+            player = new Player(this, this, mainCamera, secCamera, playerPosition, Quaternion.Identity);
             Components.Add(player);
 
             selectedCamera = mainCamera;
@@ -167,7 +195,7 @@ namespace Coursework
             empty = Content.Load<Texture2D>(".\\GUI\\empty");
             gradient = Content.Load<Texture2D>(".\\GUI\\grad");
             crosshair = Content.Load<Texture2D>(".\\GUI\\crosshair");
-
+            LoadSound();
         }
 
         protected override void UnloadContent()
@@ -211,12 +239,19 @@ namespace Coursework
 
                     if (laserSphere.Intersects(enemySphere))
                     {
+                        enemyExplodeFX = enemyExplode.CreateInstance();
+                        enemyExplodeFX.Apply3D(listener, enemyList[e].emitter);
+                        enemyExplodeFX.Play();
+                        enemyExplodeFX.Apply3D(listener, enemyList[e].emitter);
+
                         enemyList[e].isActive = false;
                         enemyList.Remove(enemyList[e]);
                         laserList[i].isActive = false;
                         laserList.Remove(laserList[i]);
                     }
                 }
+
+
 
             }
 
@@ -240,6 +275,8 @@ namespace Coursework
                     enLaserList.Remove(enLaserList[i]);
                 }
 
+                
+
             }
 
             outsideBounds = false;
@@ -256,7 +293,11 @@ namespace Coursework
                 counter = 0;
 
             gTime = gameTime;
-
+            Matrix playerRot = Matrix.CreateFromQuaternion(player.Rotation);
+            listener.Position = selectedCamera.Position;
+            listener.Forward = playerRot.Forward;
+            listener.Up = playerRot.Up;
+                  
             base.Update(gameTime);
         }
 
@@ -285,7 +326,6 @@ namespace Coursework
             DrawLaser();
 
             double boostTimer = Math.Round(player.boostTimer);
-            String boost = boostTimer.ToString();
             int booster = (int)player.boostTimer;
 
             DrawGUI(gradient, new Vector2(screenWidth / 1.3f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5), Color.DarkGray, false);
@@ -295,14 +335,11 @@ namespace Coursework
             DrawGUI(gradient, new Vector2(screenWidth / 30f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5 * ((double)player.health / 100)), Color.DarkRed, false);
 
             DrawGUI(empty, new Vector2(screenWidth / 2f, screenHeight / 16f), (int)(screenHeight / 10), (int)(screenWidth / 10), Color.DarkGray, true);
-            WriteText(enemyList.Count.ToString(), new Vector2(screenWidth / 2f, screenHeight / 16f), Color.White);
-
-
-            WriteText(boost, new Vector2(screenWidth / 1.3f, screenHeight / 20f), Color.White);
+            WriteText(enemyList.Count.ToString(), new Vector2(screenWidth / 2f, screenHeight / 16f), Color.White, true);
 
             if (outsideBounds)
             {
-                WriteText(warningMsg + Math.Round(countDown).ToString() + " SECONDS!", new Vector2(screenWidth / 2, screenHeight /3), Color.Green);
+                WriteText(warningMsg + Math.Round(countDown).ToString() + " SECONDS!", new Vector2(screenWidth / 2, screenHeight /3), Color.Green, true);
             }
 
             if (selectedCamera == mainCamera)
@@ -313,6 +350,35 @@ namespace Coursework
             base.Draw(gameTime);
         }
 
+        public void LoadSound()
+        {
+                                 
+            playerSound = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\player-move3.wav"));
+            playerSoundFX = playerSound.CreateInstance();
+            playerSoundFX.IsLooped = true;
+            playerSoundFX.Apply3D(listener, emitter);
+
+            boostSound = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\player-move.wav"));
+            playerBoostFX = boostSound.CreateInstance();
+            playerBoostFX.IsLooped = false;
+            playerBoostFX.Apply3D(listener, emitter);
+
+            enemyExplode = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\enemy-explode.wav"));
+
+            playerExplode = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\player-explode.wav"));
+            playerExplodeFX = playerExplode.CreateInstance();
+            playerExplodeFX.Apply3D(listener, emitter);
+
+            enemyFire = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\enemy-fire.wav"));
+
+            playerFire = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\player-fire.wav"));
+
+            backgroundMusic = Content.Load<Song>(".\\Sounds\\music");
+            MediaPlayer.Play(backgroundMusic);
+            MediaPlayer.Volume = 0.1f;
+            MediaPlayer.IsRepeating = true;
+        }
+            
         public void OutsideBounds(BoundingBox boxHit)
         {
             counter += gTime.ElapsedGameTime.TotalSeconds;
@@ -320,8 +386,7 @@ namespace Coursework
             if (counter >= timer)
             {
                 //Destroy
-                player.Position = playerPosition;
-                player.Rotation = Quaternion.Identity;
+                player.Destroy();
                 outsideBounds = false;
                 counter = 0;
             }
@@ -364,20 +429,19 @@ namespace Coursework
         {
             double currentTime = gTime.TotalGameTime.TotalMilliseconds;
 
-            if (currentTime - lastLaserTime > 50)
+            if (currentTime - lastLaserTime > 200)
             {
                 firePos = !firePos;
-                Projectile newLaser = new Projectile(player.Position, player.Rotation, 1f, firePos, true);
+                Projectile newLaser = new Projectile(this, player.Position, player.Rotation, 1f, firePos, true);
                 laserList.Add(newLaser);
-
                 lastLaserTime = currentTime;
+                
             }
 
         }
-        public void EnemyFire(Vector3 position, Quaternion rotation)
+        public void EnemyFire(Vector3 position, Quaternion rotation, bool firePos)
         {
-            enFirePos = !enFirePos;
-            Projectile newLaser = new Projectile(position, rotation, 1f, enFirePos, false);
+            Projectile newLaser = new Projectile(this, position, rotation, 1f, firePos, false);
             enLaserList.Add(newLaser);
         }
 
@@ -419,13 +483,23 @@ namespace Coursework
             }
         }
 
-        private void WriteText(string msg, Vector2 msgPos, Color msgColour)
+        private void WriteText(string msg, Vector2 msgPos, Color msgColour, bool centre)
         {
             spriteBatch.Begin();
             string output = msg;
+            Vector2 FontPos;
             // Find the center of the string
             Vector2 FontOrigin = fontToUse.MeasureString(output) / 2;
-            Vector2 FontPos = msgPos - FontOrigin;
+            
+            if (centre)
+            {
+                FontPos = msgPos - FontOrigin;
+            }
+            else
+            {
+                FontPos = msgPos;
+            }
+
             // Draw the string
             spriteBatch.DrawString(fontToUse, output, FontPos, msgColour);
             spriteBatch.End();
@@ -494,6 +568,20 @@ namespace Coursework
             else
             {
                 selectedCamera = mainCamera;
+            }
+        }
+
+        public void Mute(bool isMuted)
+        {
+            if (isMuted)
+            {
+                SoundEffect.MasterVolume = 0f;
+                MediaPlayer.IsMuted = true;
+            }
+            else
+            {
+                SoundEffect.MasterVolume = 1f;
+                MediaPlayer.IsMuted = false;
             }
         }
     }
