@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boss.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="InputManager.cs" />

@@ -16,9 +16,22 @@ namespace Coursework
     {
 #region Instance Variables
 
+        /* GameStateHandler */
+        public enum GameState
+        {
+            MainMenu,
+            ControlsMenu,
+            PauseMenu,
+            Playing,
+            CompleteScreen,
+        }
+
+        public GameState gameState = GameState.MainMenu;        //Instance of Enum
+
         private GraphicsDeviceManager graphics;     //Graphics Device Manager variable
         private SpriteBatch spriteBatch;            //The spritebatch variable
-        private SpriteFont fontToUse;               //Variable for the Font
+        private SpriteFont fontScore;               //Variable for the Score Font
+        private SpriteFont fontGUI;                 //Variable for the GUI Font
         private BasicEffect effect;                 //BasicEffect applied to models
         private GameTime gTime;                     //Variable to hold the GameTime
 
@@ -28,6 +41,12 @@ namespace Coursework
         private Texture2D empty;                    //Variable for the empty Texture
         private Texture2D gradient;                 //Variable that holds a graident texture, used for the health and boost bars
         private Texture2D crosshair;                //variable that holds the crosshair texture
+        private Texture2D menuLogo;                 //variable that holds the Logo texture
+        private Texture2D controller;               //variable that holds the Controller texture
+        private Texture2D mouse;                    //variable that holds the mouse texture
+        private Texture2D keyboard;                 //variable that holds the keyboard texture
+
+        public RenderTarget2D renderTarget;         //Used for the pause menu backround
 
 
 #region Class Instances
@@ -36,6 +55,7 @@ namespace Coursework
         private Camera mainCamera;                  //Main Camera Object
         private Camera secCamera;                   //Secondary Camera Object
         private Camera selectedCamera;              //Selected Camera Object
+        private Boss boss;                          //Boss Object
 #endregion
 
 #region Model Variables
@@ -61,8 +81,15 @@ namespace Coursework
         private Model mEnemyLaser;                                          //Model for the Enemy Lasers
         private Matrix[] mEnemyLaserTransforms;                             //Matrix for the Enemy Laser Model Transforms
         List<Projectile> enLaserList = new List<Projectile>();              //List that holds all the Enemy Lasers
+        List<Projectile> bossLaserList = new List<Projectile>();            //List that holds all the Boss Lasers
 
-        private float laserScale = 1f;                                      //Enemy Scale
+        private Model mBoss;                                                //Model for the Boss
+        private Matrix[] mBossTransforms;                                   //Matrix for the Boss Model Transforms
+        private Vector3 bossPosition = new Vector3(-250, 400, 500);              //Boss Spawn Position Holder
+        private Vector3 bossRotation = new Vector3(0, 0, 0);                //Boss Spawn Rotation
+        private float bossScale = 1f;                                     //Boss Scale
+        private bool bossSpawned = false;                                   //Has the Boss spawned? No by start
+
         double lastLaserTime = 0;                                           //Time since the last Laser, zero by start
         bool firePos = true;                                                //Firing Position of the laser
 
@@ -78,6 +105,8 @@ namespace Coursework
 #endregion
 
 #region Collision Variables
+        private BoundingBox bossBox = new BoundingBox();            //Collision Box for the Boss
+        
         private List<BoundingBox> boundingArea = new List<BoundingBox>();                                                   //List to hold all the Bounding Volumes
 
         private BoundingBox frontWall = new BoundingBox(new Vector3(-500f, 0f, 500f), new Vector3(500f, 600f, 800f));       //Bounding Box on the Front Wall of the Level
@@ -112,13 +141,19 @@ namespace Coursework
         public SoundEffect playerFire;                  //Variable that Loads the Player Firing Sound
         public SoundEffectInstance playerFireFX;        //Public Instance of the Player Firing Sound FX
 
+        public SoundEffect bossFire;                    //Variable that Loads the Boss Firing Sound
+        public SoundEffectInstance bossFireFX;          //Public Instance of the Boss Firing Sound FX
+
         public SoundEffect enemyExplode;                //Variable that Loads the Enemy Explosion Sound
         public SoundEffectInstance enemyExplodeFX;      //Public Instance of the Enemy Explosion Sound FX
 
         public SoundEffect playerExplode;               //Variable that Loads the Player Explosion Sound
         public SoundEffectInstance playerExplodeFX;     //Public Instance of the Player Explosion Sound FX
 
-        private Song backgroundMusic;                   //Variable that Loads the Theme Music
+        public Song backgroundMusic;                    //Variable that Loads the Theme Music
+        public Song menuMusic;                          //Variable that Loads the Menu Music
+        public Song completedMusic;                     //Variable that Loads the Game Complete Music
+        public Song bossMusic;                          //Variable that Loads the Boss Music
 
         private AudioEmitter emitter = new AudioEmitter();      //Default emitter for sounds
         public AudioListener listener = new AudioListener();    //Listens for sounds
@@ -150,7 +185,7 @@ namespace Coursework
 
             selectedCamera = mainCamera;                                //Set the Selected Camera to the Main Camera on Start
             effect = new BasicEffect(GraphicsDevice);                   //Set Up Basic Effect
-            input = new InputManager(this, this, mainCamera, player);   //Initilize the Input Manager
+            input = new InputManager(this, this, player);   //Initilize the Input Manager
             Components.Add(input);                                      //Add the Input Manager to the Game Components
 
             /* For each of the Enemies */
@@ -178,7 +213,8 @@ namespace Coursework
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);                                  //Set Up the SpriteBatch
-            fontToUse = Content.Load<SpriteFont>(".\\Fonts\\GameFont");                     //Load the Game Font
+            fontScore = Content.Load<SpriteFont>(".\\Fonts\\GameFont");                     //Load the Score Font
+            fontGUI = Content.Load<SpriteFont>(".\\Fonts\\GUIFont");                     //Load the Score Font
 
             mPlayer = Content.Load<Model>(".\\Models\\ship");                               //Load Player Model
             mPlayerTransforms = SetupEffectTransformDefaults(mPlayer, true);                //Call the Setup Effect Transform Defaults on the Player Model
@@ -195,9 +231,19 @@ namespace Coursework
             mEnemyLaser = Content.Load<Model>(".\\Models\\EnemyLaser");                     //Load Enemy Laser Model
             mEnemyLaserTransforms = SetupEffectTransformDefaults(mEnemyLaser, true);        //Call the Setup Effect Transform Defaults on the Enemy Laser Model
 
+            mBoss = Content.Load<Model>(".\\Models\\boss2");
+            mBossTransforms = SetupEffectTransformDefaults(mBoss, true);
+
             empty = Content.Load<Texture2D>(".\\GUI\\empty");                               //Load Empty Texture
             gradient = Content.Load<Texture2D>(".\\GUI\\grad");                             //Load Gradient Texture
             crosshair = Content.Load<Texture2D>(".\\GUI\\crosshair");                       //Load CrossHair Texture
+            menuLogo = Content.Load<Texture2D>(".\\GUI\\menubackground");                   //Load Logo Texture
+            controller = Content.Load<Texture2D>(".\\GUI\\controller");                     //Load Controller Texture
+            mouse = Content.Load<Texture2D>(".\\GUI\\mouse");                               //Load mouse Texture
+            keyboard = Content.Load<Texture2D>(".\\GUI\\keyboard");                         //Load keyboard Texture
+
+            renderTarget = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight, false, GraphicsDevice.PresentationParameters.BackBufferFormat, DepthFormat.Depth24);   //Set the Render Target
+
             LoadSound();                                                                    //Call the LoadSound Method, to Load the Sound FX
         }
 
@@ -208,28 +254,71 @@ namespace Coursework
         protected override void Update(GameTime gameTime)
         {
             float timeDelta = (float)gameTime.ElapsedGameTime.TotalSeconds; //Create deltaTime (time since last frame update)
+
             screenWidth = graphics.PreferredBackBufferWidth;                //Set the screenWidth to the current screen width per frame 
             screenHeight = graphics.PreferredBackBufferHeight;              //Set the screenHeight to the current screen height per frame 
 
-            /* For all the Lasers in Both Lists */
-            for (int i = 0; i < laserList.Count; i++)
+            switch (gameState)
             {
-                laserList[i].UpdateLaser(gameTime); //Update the update method with the gameTime variable
+                case GameState.MainMenu:
+                    {
+                        IsMouseVisible = true;  //Mouse visable
+                        break;
+                    }
+                case GameState.Playing:
+                    {
+                        #region Game Update
+                        IsMouseVisible = false;  //Mouse invisable
+
+                        /* For all the Lasers in Both Lists */
+                        for (int i = 0; i < laserList.Count; i++)
+                        {
+                            laserList[i].UpdateLaser(gameTime); //Update the update method with the gameTime variable
+                        }
+
+                        for (int i = 0; i < enLaserList.Count; i++)
+                        {
+                            enLaserList[i].UpdateLaser(gameTime);   //Update the update method with the gameTime variable
+                        }
+
+                        for (int i = 0; i < bossLaserList.Count; i++)
+                        {
+                            bossLaserList[i].UpdateLaser(gameTime);   //Update the update method with the gameTime variable
+                        }
+
+                        Collisions();   //Call the Collisions Method
+
+                        /* All the enemies are destroyed and the Boss has yet to spawn */
+                        if (enemyList.Count <= 0 && !bossSpawned)
+                        {
+                            SpawnBoss();
+                        }
+
+                        Matrix playerRot = Matrix.CreateFromQuaternion(player.Rotation);    //Create a Matrix from the Player Rotation
+                        listener.Position = selectedCamera.Position;                        //Set the Listener Position to the Selected Camera Position so it follows the Camera
+                        listener.Forward = playerRot.Forward;                               //Set the Forward of the listener to the player rotation Matrix Forward so its looking in the direct of the player
+                        listener.Up = playerRot.Up;                                         //Set the Up of the listener to the player rotation Matrix Up so its rolling with the player
+
+                        gTime = gameTime;       //Set gTime to gameTime
+                        //MediaPlayer.Play(backgroundMusic);
+                        #endregion
+                        break;
+                    }
+                case GameState.ControlsMenu:
+                    {
+                        break;
+                    }
+                case GameState.PauseMenu:
+                    {
+                        IsMouseVisible = true;  //Mouse visable
+                        break;
+                    }
+                case GameState.CompleteScreen:
+                    {
+                        IsMouseVisible = true;  //Mouse visable
+                        break;
+                    }
             }
-
-            for (int i = 0; i < enLaserList.Count; i++)
-            {
-                enLaserList[i].UpdateLaser(gameTime);   //Update the update method with the gameTime variable
-            }
-
-            Collisions();   //Call the Collisions Method
-            
-            Matrix playerRot = Matrix.CreateFromQuaternion(player.Rotation);    //Create a Matrix from the Player Rotation
-            listener.Position = selectedCamera.Position;                        //Set the Listener Position to the Selected Camera Position so it follows the Camera
-            listener.Forward = playerRot.Forward;                               //Set the Forward of the listener to the player rotation Matrix Forward so its looking in the direct of the player
-            listener.Up = playerRot.Up;                                         //Set the Up of the listener to the player rotation Matrix Up so its rolling with the player
-
-            gTime = gameTime;       //Set gTime to gameTime   
             base.Update(gameTime);
         }
 
@@ -237,52 +326,118 @@ namespace Coursework
         {
             GraphicsDevice.Clear(Color.Black);      //Set the Background Colour
 
-            RasterizerState rs = new RasterizerState(); //Rasterize Sate
-            rs.CullMode = CullMode.CullClockwiseFace;   //Set the Culling
+            //RasterizerState rs = new RasterizerState(); //Rasterize Sate
+            //rs.CullMode = CullMode.CullClockwiseFace;   //Set the Culling
 
-            DrawSkyBox();   //Draw the SkyBox
-
-            /* Apply Scale, Rotations and Translations to the Player, and Draw */
-            Matrix playerTransform =  Matrix.CreateScale(playerScale) * Matrix.CreateFromQuaternion(player.Rotation) * Matrix.CreateTranslation(player.Position);
-            DrawModel(mPlayer, playerTransform, mPlayerTransforms);
-
-            /* Apply Scale and Translation to the Terrain, and Draw */
-            Matrix terrainTransform = Matrix.CreateScale(terrainScale) * Matrix.CreateTranslation(terrainPosition);
-            DrawModel(mTerrain, terrainTransform, mTerrainTransforms);
-
-            /* For Each of the Enemies in the List */
-            for (int i = 0; i < enemyList.Count; i++)
+            switch (gameState)
             {
-                /* Apply Scale and Translation to the Enemey, and Draw */
-                Matrix enemyTransform = Matrix.CreateScale(enemyScale) * Matrix.CreateFromQuaternion(enemyList[i].Rotation) * Matrix.CreateTranslation(enemyList[i].Position);
-                DrawModel(mEnemy, enemyTransform, mEnemyTransforms);
+                case GameState.MainMenu:
+                    {
+                        DrawGUI(menuLogo, new Vector2(screenWidth / 2f, screenHeight / 3f), (int)(screenHeight / 2f), (int)(screenWidth / 2f), Color.White, true);
+                        //WriteText("MAIN MENU", new Vector2(screenWidth / 2f, screenHeight / 8f), Color.White, true, false);
+                        WriteText("Press Enter (A - Xbox 360) to Play", new Vector2(screenWidth / 2f, screenHeight / 1.4f), Color.White, true, true);
+                        WriteText("Press C (Y - Xbox 360) for the Controls", new Vector2(screenWidth / 2f, screenHeight / 1.3f), Color.White, true, true);
+                        WriteText("Press Escape (B - Xbox 360) to Exit", new Vector2(screenWidth / 2f, screenHeight / 1.2f), Color.White, true, true); 
+                        break;
+                    }
+                case GameState.Playing:
+                    {
+                        #region Game Draw
+                        DrawSkyBox();   //Draw the SkyBox
+
+                        /* Apply Scale, Rotations and Translations to the Player, and Draw */
+                        Matrix playerTransform = Matrix.CreateScale(playerScale) * Matrix.CreateFromQuaternion(player.Rotation) * Matrix.CreateTranslation(player.Position);
+                        DrawModel(mPlayer, playerTransform, mPlayerTransforms);
+
+                        /* Apply Scale and Translation to the Terrain, and Draw */
+                        Matrix terrainTransform = Matrix.CreateScale(terrainScale) * Matrix.CreateTranslation(terrainPosition);
+                        DrawModel(mTerrain, terrainTransform, mTerrainTransforms);
+
+                        /* For Each of the Enemies in the List */
+                        for (int i = 0; i < enemyList.Count; i++)
+                        {
+                            /* Apply Scale and Translation to the Enemey, and Draw */
+                            Matrix enemyTransform = Matrix.CreateScale(enemyScale) * Matrix.CreateFromQuaternion(enemyList[i].Rotation) * Matrix.CreateTranslation(enemyList[i].Position);
+                            DrawModel(mEnemy, enemyTransform, mEnemyTransforms);
+                        }
+
+                        DrawLaser();    //Draw the Laser(s)
+
+                        if (bossSpawned)
+                        {
+                            /* Apply Scale and Translation to the Terrain, and Draw */
+                            Matrix bossTransform = Matrix.CreateScale(boss.Scale) * Matrix.CreateFromQuaternion(boss.Rotation) * Matrix.CreateTranslation(boss.Position);
+                            DrawModel(mBoss, bossTransform, mBossTransforms);
+
+                            DrawGUI(gradient, new Vector2(screenWidth / 2f, screenHeight / 1.05f), (int)(screenHeight / 35), (int)(screenWidth / 5), Color.DarkGray, true);                                 //Draw a Scalable Background for the Boss Health Bar
+                            DrawGUI(gradient, new Vector2(screenWidth / 2f, screenHeight / 1.05f), (int)(screenHeight / 35), (int)(screenWidth / 5 * ((double)boss.health / 100)), Color.DarkGreen, true);  //Draw a Scalable Boss Health Bar
+                            WriteText("Boss Health", new Vector2(screenWidth / 2f, screenHeight / 1.05f), Color.White, true, true);                                                                               //Display the Boss health string
+                        }
+
+                        double boostTimer = Math.Round(player.boostTimer);  //Create a Rounded Boost Timer for the GUI
+
+                        DrawGUI(gradient, new Vector2(screenWidth / 1.3f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5), Color.DarkGray, false);                                //Draw a Scalable Background for the Boost Bar
+                        DrawGUI(gradient, new Vector2(screenWidth / 1.3f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5 * (boostTimer / 100)), Color.DeepSkyBlue, false);        //Draw a Scalable Boost Bar
+                        WriteText("Boost", new Vector2(screenWidth / 1.3f, screenHeight / 55f), Color.White, false, true);                                                                               //Display the boost string
+
+                        DrawGUI(gradient, new Vector2(screenWidth / 30f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5), Color.DarkGray, false);                                 //Draw a Scalable Background for the Health Bar
+                        DrawGUI(gradient, new Vector2(screenWidth / 30f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5 * ((double)player.health / 100)), Color.DarkRed, false);  //Draw a Scalable Health Bar
+                        WriteText("Health", new Vector2(screenWidth / 30f, screenHeight / 55f), Color.White, false, true);                                                                               //Display the health string
+
+
+                        //DrawGUI(empty, new Vector2(screenWidth / 2f, screenHeight / 16f), (int)(screenHeight / 10), (int)(screenWidth / 10), Color.DarkGray, true);                                     //Draw a Scalable Background for the Score
+                        WriteText(enemyList.Count.ToString(), new Vector2(screenWidth / 2f, screenHeight / 13f), Color.White, true, false);                                                             //Display the Number of Enemies on the Screen (Score)
+                        WriteText("Enemies", new Vector2(screenWidth / 2f, screenHeight / 35f), Color.White, true, true);
+
+                        /* On the Condition the Player is outside the Bounds of the Level */
+                        if (outsideBounds)
+                        {
+                            WriteText(warningMsg + Math.Round(countDown).ToString() + " SECONDS!", new Vector2(screenWidth / 2, screenHeight / 3), Color.Green, true, false);   //Display the Scalable Warning Message
+                        }
+
+                        /* On the Condition the Main Camera is Drawing */
+                        if (selectedCamera == mainCamera)
+                        {
+                            DrawGUI(crosshair, new Vector2(screenWidth / 2, screenHeight / 2), (int)(screenWidth * 0.04), (int)(screenHeight * 0.07), Color.Red, true);   //Display the Scalable CrossHair
+                        }
+                        #endregion
+                        break;
+                    }
+                case GameState.ControlsMenu:
+                    {
+                        /* Draw the Controls Screen Textures and Text*/
+                        DrawGUI(empty, new Vector2(0, 0), (int)screenHeight, (int)screenWidth, Color.White, false);
+
+                        WriteText("CONTROLS", new Vector2(screenWidth / 2f, screenHeight / 8f), Color.Black, true, false);
+                        WriteText("Press Any Key (B - Xbox 360) to Return to the Menu", new Vector2(screenWidth / 2f, screenHeight / 1.2f), Color.Black, true, true);
+
+                        
+                        DrawGUI(keyboard, new Vector2(screenWidth / 1.3f, screenHeight / 1.6f), (int)screenHeight / 4, (int)screenWidth / 8, Color.White, true);
+                        DrawGUI(controller, new Vector2(screenWidth / 3, screenHeight / 2), (int)screenHeight / 2, (int)screenWidth / 2, Color.White, true);
+                        DrawGUI(mouse, new Vector2(screenWidth / 1.3f, screenHeight / 3), (int)screenHeight / 6, (int)screenWidth / 6, Color.White, true);
+                        
+                        break;
+                    }
+                case GameState.PauseMenu:
+                    {
+                        /* Draw the Pause Screen Textures and Text*/
+                        DrawGUI(renderTarget, new Vector2(0, 0), (int)screenHeight, (int)screenWidth, Color.White, false);
+                        DrawGUI(empty, new Vector2(0, 0), (int)screenHeight, (int)screenWidth, Color.Black * 0.3f, false);
+
+                        WriteText("PAUSED", new Vector2(screenWidth / 2f, screenHeight / 3.5f), Color.White, true, false);
+                        WriteText("Press Enter (Start - Xbox 360) to Resume", new Vector2(screenWidth / 2f, screenHeight / 1.3f), Color.White, true, true);
+                        WriteText("Press Escape (B - Xbox 360) to Exit", new Vector2(screenWidth / 2f, screenHeight / 1.2f), Color.White, true, true); 
+                        break;
+                    }
+                case GameState.CompleteScreen:
+                    {
+                        /* Draw the Complete Screen Textures and Text*/
+                        DrawGUI(menuLogo, new Vector2(screenWidth / 2f, screenHeight / 3f), (int)(screenHeight / 1.8f), (int)(screenWidth / 2f), Color.White, true);
+                        WriteText("GAME OVER!", new Vector2(screenWidth / 2f, screenHeight / 1.5f), Color.White, true, false);
+                        WriteText("Press Any Key (B - Xbox 360) to Exit", new Vector2(screenWidth / 2f, screenHeight / 1.2f), Color.White, true, true); 
+                        break;
+                    }
             }
-
-            DrawLaser();    //Draw the Laser(s)
-
-            double boostTimer = Math.Round(player.boostTimer);  //Create a Rounded Boost Timer for the GUI
-
-            DrawGUI(gradient, new Vector2(screenWidth / 1.3f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5), Color.DarkGray, false);                                //Draw a Scalable Background for the Boost Bar
-            DrawGUI(gradient, new Vector2(screenWidth / 1.3f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5 * (boostTimer / 100)), Color.DeepSkyBlue, false);        //Draw a Scalable Boost Bar
-
-            DrawGUI(gradient, new Vector2(screenWidth / 30f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5), Color.DarkGray, false);                                 //Draw a Scalable Background for the Health Bar
-            DrawGUI(gradient, new Vector2(screenWidth / 30f, screenHeight / 20f), (int)(screenHeight / 35), (int)(screenWidth / 5 * ((double)player.health / 100)), Color.DarkRed, false);  //Draw a Scalable Health Bar
-
-            DrawGUI(empty, new Vector2(screenWidth / 2f, screenHeight / 16f), (int)(screenHeight / 10), (int)(screenWidth / 10), Color.DarkGray, true);                                     //Draw a Scalable Background for the Score
-            WriteText(enemyList.Count.ToString(), new Vector2(screenWidth / 2f, screenHeight / 16f), Color.White, true);                                                                    //Display the Number of Enemies on the Screen (Score)
-
-            /* On the Condition the Player is outside the Bounds of the Level */
-            if (outsideBounds)
-            {
-                WriteText(warningMsg + Math.Round(countDown).ToString() + " SECONDS!", new Vector2(screenWidth / 2, screenHeight /3), Color.Green, true);   //Display the Scalable Warning Message
-            }
-
-            /* On the Condition the Main Camera is Drawing */
-            if (selectedCamera == mainCamera)
-            {
-                DrawGUI(crosshair, new Vector2(screenWidth / 2, screenHeight / 2), (int)(screenWidth * 0.04), (int)(screenHeight * 0.07), Color.Red, true);   //Display the Scalable CrossHair
-            }
-
             base.Draw(gameTime);
         }
 
@@ -290,16 +445,23 @@ namespace Coursework
 
 #region Methods
 
+        public void SpawnBoss()
+        {
+            boss = new Boss(this, this, player, bossPosition, bossRotation, bossScale);    //Initilize the Boss
+            Components.Add(boss);   
+            bossSpawned = true;
+        }
+
         public void LoadSound()
         {
             /* Load the Sound Effects for the Player, Create an Instance, Set Looping On and Apply it to the Scene */                     
-            playerSound = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\player-move3.wav"));
+            playerSound = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\player-move.wav"));
             playerSoundFX = playerSound.CreateInstance();
             playerSoundFX.IsLooped = true;
             playerSoundFX.Apply3D(listener, emitter);
 
             /* Load the Sound Effects for the Boost, Create an Instance, Set Looping Off and Apply it to the Scene */ 
-            boostSound = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\player-move.wav"));
+            boostSound = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\player-boost.wav"));
             playerBoostFX = boostSound.CreateInstance();
             playerBoostFX.IsLooped = false;
             playerBoostFX.Apply3D(listener, emitter);
@@ -311,11 +473,16 @@ namespace Coursework
 
             enemyExplode = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\enemy-explode.wav"));    //Load the Enemy Explode Sound
             enemyFire = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\enemy-fire.wav"));          //Load the Enemy Fire Sound
+            bossFire = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\enemy-fire.wav"));           //Load the Boss Fire Sound
             playerFire = SoundEffect.FromStream(TitleContainer.OpenStream(@"Content\\Sounds\\player-fire.wav"));        //Load the Player Fire Sound
-
-            /* Load the Background Music, Play it, Set the Volume and Loop it */ 
+            
+            /*Load the background Music, Set the Volume and Loop it */ 
             backgroundMusic = Content.Load<Song>(".\\Sounds\\music");
-            MediaPlayer.Play(backgroundMusic);
+            menuMusic = Content.Load<Song>(".\\Sounds\\MenuMusic");
+            completedMusic = Content.Load<Song>(".\\Sounds\\CreditsMusic");
+            bossMusic = Content.Load<Song>(".\\Sounds\\BossMusic");
+
+            MediaPlayer.Play(menuMusic);
             MediaPlayer.Volume = 0.1f;
             MediaPlayer.IsRepeating = true;
         }
@@ -369,6 +536,8 @@ namespace Coursework
                 graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
                 graphics.ApplyChanges();    //Apply the Above
             }
+
+            renderTarget = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight, false, GraphicsDevice.PresentationParameters.BackBufferFormat, DepthFormat.Depth24);   //Set the Render Target
         }
 
         public void Fire()
@@ -379,7 +548,7 @@ namespace Coursework
             if (currentTime - lastLaserTime > 200)
             {
                 firePos = !firePos;             //Invert the Fire Pos to Change the Offset
-                Projectile newLaser = new Projectile(this, player.Position, player.Rotation, 1f, firePos, true);    //Create a New Laser
+                Projectile newLaser = new Projectile(this, player.Position, player.Rotation, 1f, firePos, true, false);    //Create a New Laser
                 laserList.Add(newLaser);        //Add the new Laser to the List
                 lastLaserTime = currentTime;    //Set the Time to the current Time
             }
@@ -387,8 +556,14 @@ namespace Coursework
 
         public void EnemyFire(Vector3 position, Quaternion rotation, bool firePos)
         {
-            Projectile newLaser = new Projectile(this, position, rotation, 1f, firePos, false);     //Create a New Laser
+            Projectile newLaser = new Projectile(this, position, rotation, 1f, firePos, false, false);     //Create a New Laser
             enLaserList.Add(newLaser);      //Add the new Laser to the List
+        }
+
+        public void BossFire(Vector3 position, Quaternion rotation, bool firePos)
+        {
+            Projectile newLaser = new Projectile(this, position, rotation, 10f, firePos, false, true);     //Create a New Laser
+            bossLaserList.Add(newLaser);      //Add the new Laser to the List
         }
 
         private Matrix[] SetupEffectTransformDefaults(Model myModel, bool lighting)
@@ -432,14 +607,25 @@ namespace Coursework
             }
         }
 
-        private void WriteText(string msg, Vector2 msgPos, Color msgColour, bool centre)
+        private void WriteText(string msg, Vector2 msgPos, Color msgColour, bool centre, bool gui)
         {
             spriteBatch.Begin();
             string output = msg;
+            SpriteFont theFont;
             Vector2 FontPos;
-            // Find the center of the string
-            Vector2 FontOrigin = fontToUse.MeasureString(output) / 2;
             
+            /* is it the gui font? */
+            if (gui)
+            {
+                theFont = fontGUI;
+            }
+            else
+            {
+                theFont = fontScore;
+            }
+
+            Vector2 FontOrigin = theFont.MeasureString(output) / 2; // Find the center of the string
+
             /* Is the text is to be centred? */
             if (centre)
             {
@@ -451,7 +637,7 @@ namespace Coursework
             }
 
             // Draw the string
-            spriteBatch.DrawString(fontToUse, output, FontPos, msgColour);
+            spriteBatch.DrawString(theFont, output, FontPos, msgColour);
             spriteBatch.End();
         }
 
@@ -483,14 +669,19 @@ namespace Coursework
             for (int i = 0; i < laserList.Count; i++)
             {
                 /* Apply the Scale, Rotations and Translations to the laser and Draw */
-                Matrix laserTransform = Matrix.CreateScale(laserScale) * Matrix.CreateFromQuaternion(laserList[i].Rotation) * Matrix.CreateTranslation(laserList[i].Position);
+                Matrix laserTransform = Matrix.CreateScale(laserList[i].Scale) * Matrix.CreateFromQuaternion(laserList[i].Rotation) * Matrix.CreateTranslation(laserList[i].Position);
                 DrawModel(mLaser, laserTransform, mLaserTransforms);
             }
             for (int i = 0; i < enLaserList.Count; i++)
             {
                 /* Apply the Scale, Rotations and Translations to the laser and Draw */
-                Matrix enLaserTransform = Matrix.CreateScale(laserScale) * Matrix.CreateFromQuaternion(enLaserList[i].Rotation) * Matrix.CreateTranslation(enLaserList[i].Position);
+                Matrix enLaserTransform = Matrix.CreateScale(1f) * Matrix.CreateFromQuaternion(enLaserList[i].Rotation) * Matrix.CreateTranslation(enLaserList[i].Position);
                 DrawModel(mEnemyLaser, enLaserTransform, mEnemyLaserTransforms);
+            }
+            for (int i = 0; i < bossLaserList.Count; i++)
+            {
+                Matrix bossLaserTransform = Matrix.CreateScale(bossLaserList[i].Scale) * Matrix.CreateFromQuaternion(bossLaserList[i].Rotation) * Matrix.CreateTranslation(bossLaserList[i].Position);
+                DrawModel(mEnemyLaser, bossLaserTransform, mEnemyLaserTransforms);
             }
         }
 
@@ -545,8 +736,8 @@ namespace Coursework
 
         public void Collisions()
         {
-            BoundingSphere playerSphere = new BoundingSphere(player.Position, 5f);  //Create a Bounding Sphere per frame for the Player
-
+            BoundingSphere playerSphere = new BoundingSphere(player.Position, 3f);  //Create a Bounding Sphere per frame for the Player
+            
             /* For the Active Lasers in the Players Laser List */
             for (int i = 0; i < laserList.Count; i++)
             {
@@ -581,7 +772,45 @@ namespace Coursework
                         laserList.Remove(laserList[i]);                             //Remove the Laser from its list due to it Colliding
                     }
                 }
+
+                if (laserSphere.Intersects(bossBox))
+                {
+                    boss.Damage(2);                     //Call the Damage Method
+                    laserList[i].isActive = false;      //Make the laser inactive
+                    laserList.Remove(laserList[i]);     //Remove the Laser from the List
+                }
+
             }
+
+            if (bossSpawned)
+            {
+                bossBox = new BoundingBox((boss.Position + new Vector3(-200, -50, -140)), (boss.Position + new Vector3(160, 50, 140)));
+
+                for (int i = 0; i < bossLaserList.Count; i++)
+                {
+                    BoundingSphere bossLaserSphere = new BoundingSphere(bossLaserList[i].Position, 0.5f); //Create a Bounding Sphere
+
+                    if (bossLaserSphere.Intersects(playerSphere))
+                    {
+                        player.Damage(20);                      //Call the Damage Method
+                        bossLaserList[i].isActive = false;      //Make the laser inactive
+                        bossLaserList.Remove(bossLaserList[i]); //Remove the Laser from the List
+                    }
+
+                    for (int j = 0; j < boundingArea.Count; j++)
+                    {
+                        /* Does a Boss Laser Collide */
+                        if (bossLaserSphere.Intersects(boundingArea[j]))
+                        {
+                            bossLaserList[i].isActive = false;  //The Colliding Laser is now inactive
+                            bossLaserList.Remove(bossLaserList[i]); //Removed from the Laser List as its inactive
+                        }
+                    }
+
+
+                }
+            }
+
 
             /* For the Active Lasers in the Enemies Laser List */
             for (int i = 0; i < enLaserList.Count; i++)
@@ -602,7 +831,7 @@ namespace Coursework
                 /* If an Enemy Laser Collides with the Player */
                 if (enLaserSphere.Intersects(playerSphere))
                 {
-                    player.Damage();                    // Call the Damage Method
+                    player.Damage(5);                    // Call the Damage Method
                     enLaserList[i].isActive = false;    //Make the laser inactive
                     enLaserList.Remove(enLaserList[i]); //Remove the Laser from the List
                 }
@@ -628,6 +857,18 @@ namespace Coursework
             }
         }
 
+        public void CreateTexture()
+        {
+            // Set the render target
+            GraphicsDevice.SetRenderTarget(renderTarget);
+
+            GraphicsDevice.DepthStencilState = new DepthStencilState() { DepthBufferEnable = true };
+            Draw(gTime);
+            // Drop the render target
+            GraphicsDevice.SetRenderTarget(null);
+            
+        }
+        
 #endregion
     }
 }

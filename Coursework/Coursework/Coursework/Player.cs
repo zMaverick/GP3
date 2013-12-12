@@ -24,6 +24,8 @@ namespace Coursework
         private Vector3 secCameraOffset = new Vector3(0f, 1f, 6f);      //Offset Vector for the Secondary Camera
         private Quaternion cameraRotation = Quaternion.Identity;        //Camera Rotation
         private AudioEmitter emitter = new AudioEmitter();              //Audio Emitter for Sounds
+        private bool vibrate = false;                                   //Is the controller vibrating
+        private int vibCounter = 0;                                        //vibration time
 
         public float yaw = 2f;                  //Yaw rotation Speed
         public float pitch = 3f;                //Pitch rotation Speed
@@ -58,6 +60,121 @@ namespace Coursework
             secCamera = backCamera;
 
             MoveTo(spawnPosition, spawnRotation);   //Call the MoveTo method
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            float delta = (float)gameTime.ElapsedGameTime.TotalSeconds;     //Create deltaTime (time since last frame update)
+            switch (theGame.gameState)
+            {
+                case Game1.GameState.MainMenu:
+                    {
+                        theGame.playerSoundFX.Stop();       //Stop the player movement Sound FX
+                        break;
+                    }
+                case Game1.GameState.Playing:
+                    {
+                        #region Game Update
+                        
+                        emitter.Position = playerPosition;                              //Update the emitter position to the projectile position
+
+                        Vector3 yawPitchRoll = new Vector3(pitch, yaw, roll);           //Create the yawPitchRoll variable from the floats yaw, pitch and roll
+                        moveVector = Vector3.Zero;                                      //Set the moveVector to zero per frame
+                        moveVector.Z = 1;                                               //Set the moveVector Z variable to one per frame, so the player is always moving forward
+
+
+                        /* On the condition the player is moving */
+                        if (moveVector != Vector3.Zero)
+                        {
+                            moveVector.Normalize();                 //Normalize the moveVector so the applied speed is equally distributed
+                            moveVector *= delta * playerSpeed;      //Apply the speed variable (multipled by delta, for consistency in systems) to the move Vector
+                            Move(moveVector);                       //Call the Move method
+                        }
+                        /* On the condition the player is rotating */
+                        if (rotateVector != Vector3.Zero)
+                        {
+                            rotateVector.Normalize();               //Normalize the rotateVector so the applied speed is equally distributed
+                            rotateVector *= delta * yawPitchRoll;   //Apply the yaw pitch and roll variables (multipled by delta, for consistency in systems) to the rotate Vectors
+                            Rotate(rotateVector);                   //Call the Rotate method
+                        }
+
+                        /* On the condition the player is boosting and there is boost available */
+                        if (boostActive && boostTimer > 0)
+                        {
+                            GamePad.SetVibration(PlayerIndex.One, 0, 0.1f);  //Vibrate
+                            playerSpeed = 50f;                  //The playerSpeed is 50
+                            boostTimer -= 0.5f;                 //The boost available reduces 0.5 per frame
+                            cameraOffset.Z -= 0.2f;             //The camera will retract
+                            theGame.playerSoundFX.Stop();       //Stop the player movement Sound FX
+                            theGame.playerBoostFX.Play();       //Play the player boost Sound FX
+                        }
+                        else
+                        {
+                            GamePad.SetVibration(PlayerIndex.One, 0, 0);    //Vibrate
+                            cameraOffset.Z += 0.2f;                         //The camera will extend
+                            theGame.playerBoostFX.Stop();                   //Stop the player boost Sound FX
+                            theGame.playerSoundFX.Play();                   //Play the player movement Sound FX
+                            theGame.playerSoundFX.Pitch = speedSound / 8;   //Apply the speedSound to the pitch (over 8), to create the speed based pitch noise
+                            playerSpeed = 10f;                              //Reset the player speed to 10
+                        }
+
+                        if (!boostActive)
+                        {
+                            //If the player has stopped trying to Boost - Add 0.5 per frame
+                            boostTimer += 0.5f;
+                        }
+
+                        boostTimer = MathHelper.Clamp(boostTimer, -1.0f, 100.0f);       //Clamp the boostTimer so it never goes above 100 and below -1
+                        cameraOffset.Z = MathHelper.Clamp(cameraOffset.Z, -8f, -6f);    //Clamp the Z-Axis of cameraOffset to keep it attached within reason
+                        theGame.playerBoostFX.Apply3D(theGame.listener, emitter);       //Apply this instance to the Game Listener (the player), from the emitter
+                        theGame.playerSoundFX.Apply3D(theGame.listener, emitter);       //Apply this instance to the Game Listener (the player), from the emitter
+                        theGame.playerExplodeFX.Apply3D(theGame.listener, emitter);     //Apply this instance to the Game Listener (the player), from the emitter
+
+                        if (health <= 0)
+                        {
+                            Destroy();   //Call the Destroy method if the heath reaches zero
+                        }
+
+                        if (vibrate)
+                        {
+                            vibCounter++;
+                            if (vibCounter * delta < 1)
+                            {
+                                GamePad.SetVibration(PlayerIndex.One, 0.5f, 0.5f);
+                            }
+                            else
+                            {
+                                vibCounter = 0;
+                                vibrate = false;
+                            }
+                        }
+                        else
+                        {
+                            GamePad.SetVibration(PlayerIndex.One, 0, 0);
+                        }
+
+                        AttachCamera();  //Attach the Camera once per frame
+                        #endregion
+                        break;
+                    }
+                case Game1.GameState.ControlsMenu:
+                    {
+                        theGame.playerSoundFX.Stop();       //Stop the player movement Sound FX
+                        break;
+                    }
+                case Game1.GameState.PauseMenu:
+                    {
+                        theGame.playerSoundFX.Stop();       //Stop the player movement Sound FX
+                        break;
+                    }
+                case Game1.GameState.CompleteScreen:
+                    {
+                        theGame.playerSoundFX.Stop();       //Stop the player movement Sound FX
+                        break;
+                    }
+            }
+
+
         }
 
         private void MoveTo(Vector3 newPosition, Quaternion newRotation)
@@ -110,72 +227,10 @@ namespace Coursework
             cameraRotation = Quaternion.Lerp(cameraRotation, playerRotation, 0.1f);     //Lerp the Camera Rotation by the Player Rotation to add a slight delay to the camera to make it less twitchy
         }
 
-        public override void Update(GameTime gameTime)
+        public void Damage(int damageDone)
         {
-            float delta = (float)gameTime.ElapsedGameTime.TotalSeconds;     //Create deltaTime (time since last frame update)
-            emitter.Position = playerPosition;                              //Update the emitter position to the projectile position
-
-            Vector3 yawPitchRoll = new Vector3(pitch, yaw, roll);           //Create the yawPitchRoll variable from the floats yaw, pitch and roll
-            moveVector = Vector3.Zero;                                      //Set the moveVector to zero per frame
-            moveVector.Z = 1;                                               //Set the moveVector Z variable to one per frame, so the player is always moving forward
-
-
-            /* On the condition the player is moving */
-            if (moveVector != Vector3.Zero)
-            {
-                moveVector.Normalize();                 //Normalize the moveVector so the applied speed is equally distributed
-                moveVector *= delta * playerSpeed;      //Apply the speed variable (multipled by delta, for consistency in systems) to the move Vector
-                Move(moveVector);                       //Call the Move method
-            }
-            /* On the condition the player is rotating */
-            if (rotateVector != Vector3.Zero)
-            {
-                rotateVector.Normalize();               //Normalize the rotateVector so the applied speed is equally distributed
-                rotateVector *= delta * yawPitchRoll;   //Apply the yaw pitch and roll variables (multipled by delta, for consistency in systems) to the rotate Vectors
-                Rotate(rotateVector);                   //Call the Rotate method
-            }
-
-            /* On the condition the player is boosting and there is boost available */
-            if (boostActive && boostTimer > 0)
-            {
-                playerSpeed = 50f;                  //The playerSpeed is 50
-                boostTimer -= 0.5f;                 //The boost available reduces 0.5 per frame
-                cameraOffset.Z -= 0.2f;             //The camera will retract
-                theGame.playerSoundFX.Stop();       //Stop the player movement Sound FX
-                theGame.playerBoostFX.Play();       //Play the player boost Sound FX
-            }
-            else
-            {
-                cameraOffset.Z += 0.2f;                         //The camera will extend
-                theGame.playerBoostFX.Stop();                   //Stop the player boost Sound FX
-                theGame.playerSoundFX.Play();                   //Play the player movement Sound FX
-                theGame.playerSoundFX.Pitch = speedSound / 8;   //Apply the speedSound to the pitch (over 8), to create the speed based pitch noise
-                playerSpeed = 10f;                              //Reset the player speed to 10
-            }
-
-            if (!boostActive)
-            {
-                //If the player has stopped trying to Boost - Add 0.5 per frame
-                boostTimer += 0.5f;
-            }
-
-            boostTimer = MathHelper.Clamp(boostTimer, -1.0f, 100.0f);       //Clamp the boostTimer so it never goes above 100 and below -1
-            cameraOffset.Z = MathHelper.Clamp(cameraOffset.Z, -8f, -6f);    //Clamp the Z-Axis of cameraOffset to keep it attached within reason
-            theGame.playerBoostFX.Apply3D(theGame.listener, emitter);       //Apply this instance to the Game Listener (the player), from the emitter
-            theGame.playerSoundFX.Apply3D(theGame.listener, emitter);       //Apply this instance to the Game Listener (the player), from the emitter
-            theGame.playerExplodeFX.Apply3D(theGame.listener, emitter);     //Apply this instance to the Game Listener (the player), from the emitter
-
-            if (health <= 0)
-            {
-                Destroy();   //Call the Destroy method if the heath reaches zero
-            }
-
-            AttachCamera();  //Attach the Camera once per frame
-        }
-
-        public void Damage()
-        {
-            health = health - 5;    //Damage Done
+            health = health - damageDone;    //Damage Done
+            vibrate = true;                 //Vibrate
         }
 
         public void Boost(Boolean active)
@@ -186,7 +241,7 @@ namespace Coursework
         public void Destroy()
         {
             theGame.playerExplodeFX.Play();                             //play the player explode Sound FX
-
+            vibrate = true;                                             //Vibrate
             playerPosition = new Vector3(0f, 200f, 0f);                 //Reset the Player Position
             playerRotation = Quaternion.Identity;                       //Reset the Player Rotation
             controlCamera.Position = playerPosition + cameraOffset;     //Reset the Main Camera Position
@@ -199,3 +254,5 @@ namespace Coursework
 
     }
 }
+
+

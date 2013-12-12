@@ -68,34 +68,59 @@ namespace Coursework
             if (isActive)
             {
                 float delta = (float)gameTime.ElapsedGameTime.TotalSeconds;     //Create deltaTime (time since last frame update)
-                emitter.Position = enemyPosition;                               //Update the emitter position to the projectile position
+                switch (theGame.gameState)
+                {
+                    case Game1.GameState.MainMenu:
+                        {
+                            break;
+                        }
+                    case Game1.GameState.Playing:
+                        {
+                            #region Game Update
+                            emitter.Position = enemyPosition;                               //Update the emitter position to the projectile position
                 
-                playerDistance = Vector3.Distance(enemyPosition, targetPlayer.Position);    //Calculate the distance between the enemy position and the player position)
+                            playerDistance = Vector3.Distance(enemyPosition, targetPlayer.Position);    //Calculate the distance between the enemy position and the player position)
 
-                /* This condition is based on the player being within the attack distance */
-                if (playerDistance <= attackDistance)
-                {
-                    theGame.enemySoundFX.Play();    //play the enemy movement Sound FX
-                    theGame.enemySoundFX.Apply3D(theGame.listener, emitter);    //Apply this instance to the Game Listener (the player), from the emitter
+                            /* This condition is based on the player being within the attack distance */
+                            if (playerDistance <= attackDistance)
+                            {
+                                theGame.enemySoundFX.Play();    //play the enemy movement Sound FX
+                                theGame.enemySoundFX.Apply3D(theGame.listener, emitter);    //Apply this instance to the Game Listener (the player), from the emitter
                     
-                    Attack(gameTime);       //Call the Attack Method
-                    moveVector.Z = 1;       //Move the Enemy
-                    attackDistance = 200f;  //Set a new attack Distance, so the enemy follows for longer
-                }
-                else if (playerDistance >= attackDistance)
-                {
-                    attackDistance = 100f;  //Reset the attack distance to default
+                                Attack(gameTime);       //Call the Attack Method
+                                moveVector.Z = 1;       //Move the Enemy
+                                attackDistance = 200f;  //Set a new attack Distance, so the enemy follows for longer
+                            }
+                            else if (playerDistance >= attackDistance)
+                            {
+                                attackDistance = 100f;  //Reset the attack distance to default
+                            }
+
+                            /* This condition is based on the enemy moving */
+                            if (moveVector != Vector3.Zero)
+                            {
+                                moveVector.Normalize();             //Normalize the rotateVector so the applied speed is equally distributed
+                                moveVector *= delta * enemySpeed;   //Apply the speed variable (multipled by delta, for consistency in systems) to the rotate Vector
+                                Move(moveVector);                   //Call the Move method
+                            }
+                            #endregion
+                            break;
+                        }
+                    case Game1.GameState.ControlsMenu:
+                        {
+                            break;
+                        }
+                    case Game1.GameState.PauseMenu:
+                        {
+                            break;
+                        }
+                    case Game1.GameState.CompleteScreen:
+                        {
+                            break;
+                        }
                 }
 
-                /* This condition is based on the enemy moving */
-                if (moveVector != Vector3.Zero)
-                {
-                    moveVector.Normalize();             //Normalize the rotateVector so the applied speed is equally distributed
-                    moveVector *= delta * enemySpeed;   //Apply the speed variable (multipled by delta, for consistency in systems) to the rotate Vector
-                    Move(moveVector);                   //Call the Move method
-                }
             }
-
             base.Update(gameTime);
         }
 
